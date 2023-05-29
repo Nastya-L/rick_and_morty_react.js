@@ -32,6 +32,7 @@
     "eslint": "^8.40.0",
     "eslint-plugin-react": "^7.32.2",
     "file": "^0.2.2",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.1",
     "less-loader": "^11.1.0",
     "loader": "^2.1.1",
@@ -49,6 +50,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "axios": "^1.4.0",
+    "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",

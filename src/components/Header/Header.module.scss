@@ -1,0 +1,114 @@
+@import '../../styles/App';
+
+header {
+    border-bottom: 1px solid $primary-color;
+    max-width: $max-page-width;
+    background: $header-background-light;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 20px 32px 20px 0;
+}
+
+.tools {
+    display: flex;
+    margin-right: 32px;
+}
+
+form {
+    position: relative;
+    width: 300px;
+    margin: 0 auto;
+    height: 42px;
+}
+
+.search {
+    height: 42px;
+    width: 0;
+    padding: 0 42px 0 15px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    outline: none;
+    background: transparent;
+    transition: .4s cubic-bezier(0, 0.8, 0, 1);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.inputBtn {
+    border: none;
+    border: 1px solid $button-color;
+    background-color: $header-background-light;
+    height: 42px;
+    width: 42px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background-image: url('../../images/search.png');
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+}
+
+.inputBtn::before {
+    font-size: 1em;
+    color: #F9F0DA;
+}
+
+.search:focus {
+  width: 300px;
+  z-index: 1;
+  border-bottom: 2px solid $button-color;
+}
+
+button {
+    height: 42px;
+    width: 42px;
+    border: none;
+    background-color: $button-color;
+    cursor: pointer;
+}
+
+.toggleLight {
+    background-image: url('../../images/Sun.png');
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+}
+
+.toggleDark {
+    background-image: url('../../images/Moon.svg');
+    background-repeat: no-repeat;
+    background-position: 6px 6px;
+}
+
+.authorizationWrapper {
+    display: flex;
+
+    a {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        cursor: pointer;
+    }
+}
+
+.singUp {
+    border-radius: 50px;
+    padding: 12px 32px;
+    color: $button-color;
+    background: $header-background-light;
+}
+
+.login {
+    border-radius: 50px;
+    padding: 12px 32px;
+    background: $button-color;
+    color: $header-background-light;
+}

@@ -1,0 +1,70 @@
+@import '../../styles/App';
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 97vh;
+    width: 280px;
+    padding-top: 40px;
+    z-index: 800;
+    border-right: 1px solid $primary-color;
+    background-color: $sidebar-background-light;
+}
+
+.logo {
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.item {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $main-text;
+    
+    a {
+        padding: 12px 16px 12px 52px;
+        width: 156px;
+        display: block;
+        cursor: pointer;
+    }
+
+    &Home {
+        background-image: url('../../images/home.png');
+        background-repeat: no-repeat;
+        background-position: 6px 10px;
+    }
+
+    &Characters {
+        background-image: url('../../images/users.png');
+        background-repeat: no-repeat;
+        background-position: 6px 10px;
+    }
+
+    &Episodes {
+        background-image: url('../../images/play.png');
+        background-repeat: no-repeat;
+        background-position: 6px 10px;
+    }
+
+    &Locations {
+        background-image: url('../../images/Planet.png');
+        background-repeat: no-repeat;
+        background-position: 6px 10px;
+    }
+}
+

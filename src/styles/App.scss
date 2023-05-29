@@ -1,0 +1,22 @@
+$main-background-light: #F2F8FD;
+$main-background-dark: #2c2c2c;
+$header-background-dark: #000;
+$header-background-light: #FFF;
+$sidebar-background-dark: #002062;
+$sidebar-background-light: #E8E8E8;
+$main-text: #191919;
+$primary-color: #525256;
+$button-color: #11B0C8;
+$max-page-width: 1920px;
+
+html,
+body {
+    font: 16px/1.5;
+    margin: 0 auto;
+    font-family: Inter, sans-serif;
+    user-select: none;
+}
+
+body {
+    margin-left: 280px;
+}

@@ -1,0 +1,37 @@
+@import '../../styles/App';
+
+.langs {
+    color: $main-text;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.25s;
+    padding: 15px;
+    background-image: url('../../images/dropdown.png');
+    background-repeat: no-repeat;
+    background-position: 70px 14px;
+    margin: 20px 0;
+    align-self: flex-start;
+
+
+    &Menu {
+        padding: 10px 15px;
+        border-radius: 6px;
+        background: red;
+        position: absolute;
+        top: 100%;
+        display: none;
+    }
+}
+
+.lang {
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 50%);
+    transition: color 0.25s;     
+}

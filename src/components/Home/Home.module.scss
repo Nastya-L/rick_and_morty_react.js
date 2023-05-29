@@ -1,0 +1,45 @@
+@import '../../styles/App';
+
+main {
+    display: flex;
+    justify-content: center;
+    background: $main-background-light;
+    border-radius: 8px;
+    margin: 0 15px;
+    min-width: 70vw;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 20px;
+}
+
+.view {
+    &List {
+        background-image: url('../../images/view-list.png');
+        background-repeat: no-repeat;
+        background-position: 12px 12px;
+        background-color: $primary-color;
+    }
+
+    &Square {
+        background-image: url('../../images/Overview.png');
+        background-repeat: no-repeat;
+        background-position: 6px 8px;
+        background-color: $primary-color;
+    }
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.activeBtn {
+    background-color: $button-color;
+}
