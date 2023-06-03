@@ -1,35 +1,54 @@
 import React from 'react';
 import '../../styles/App.scss';
 import '../../styles/reset.scss';
+import clas from 'classnames';
 
 import styles from './Sidebar.module.scss';
 import LOGO from '../../images/Logo.png';
 import Langs from '../Langs/Langs';
+import { ThemeContext } from '../UI/Theme/ThemeContext';
+import { NavLink } from 'react-router-dom';
 
 function Sidebar() {
+
 	return (
-		<div className={styles.sidebar}>
-			<nav>
-				<div className={styles.logo}>
-					<img src={LOGO} alt="Logo" />
+		<ThemeContext.Consumer>
+			{({theme}) =>
+				<div className={clas(styles.sidebar)} data-theme={`${theme}Sidebar`}>
+					<nav>
+						<div className={styles.logo}>
+							<img src={LOGO} alt="Logo" />
+						</div>
+						<ul className={styles.list}>
+							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemHome)}>
+								<NavLink data-theme={`${theme}Sidebar`} to={'/'} 
+									className={({ isActive}) => isActive ? styles.active : styles.itemHome}>
+									Главная
+								</NavLink>
+							</li>
+							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemCharacters)}>
+								<NavLink data-theme={`${theme}Sidebar`} to={'/Characters'} 
+									className={({ isActive}) => isActive ? styles.active : styles.itemCharacters}>
+									Персонажи
+								</NavLink>
+							</li>
+							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemEpisodes)}>
+								<NavLink data-theme={`${theme}Sidebar`} to={'/Episodes'} 
+									className={({ isActive}) => isActive ? styles.active : styles.itemEpisodes}>
+									Эпизоды</NavLink>
+							</li>
+							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemLocations)}>
+								<NavLink data-theme={`${theme}Sidebar`} to={'/Locations'} 
+									className={({ isActive}) => isActive ? styles.active : styles.itemLocations}>
+									Локации</NavLink>
+							</li>
+						</ul>
+					</nav>
+					<Langs/>
 				</div>
-				<ul className={styles.list}>
-					<li className={styles.item}>
-						<a className={styles.itemHome}>Главная</a>
-					</li>
-					<li className={styles.item}>
-						<a className={styles.itemCharacters}>Персонажи</a>
-					</li>
-					<li className={styles.item}>
-						<a className={styles.itemEpisodes}>Эпизоды</a>
-					</li>
-					<li className={styles.item}>
-						<a className={styles.itemLocations}>Локации</a>
-					</li>
-				</ul>
-			</nav>
-			<Langs/>
-		</div>
+			}
+		</ThemeContext.Consumer>
+		
 	);
 }
 

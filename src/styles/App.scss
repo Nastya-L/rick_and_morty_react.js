@@ -1,11 +1,10 @@
 $main-background-light: #F2F8FD;
-$main-background-dark: #2c2c2c;
 $header-background-dark: #000;
-$header-background-light: #FFF;
-$sidebar-background-dark: #002062;
-$sidebar-background-light: #E8E8E8;
+$main-background-dark: #878787;
+$sidebar-background-dark: #191919;
+$sidebar-background-light: #FFF;
 $main-text: #191919;
-$primary-color: #525256;
+$primary-color: #6E7191;
 $button-color: #11B0C8;
 $max-page-width: 1920px;
 
@@ -19,4 +18,18 @@ body {
 
 body {
     margin-left: 280px;
+}
+
+.app {
+    margin: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+
+#light.app {
+    background: $main-background-light;
+}
+
+#dark.app {
+    background: $main-background-dark;
 }

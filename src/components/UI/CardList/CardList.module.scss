@@ -7,7 +7,6 @@
     max-width: 1200px;
     max-height: 280px;
     min-height: 200px;
-    background: $header-background-light;
     padding: 15px;
     margin: 20px;
     position: relative;
@@ -61,7 +60,7 @@
             font-size: 16px;
             line-height: 24px;
             color: $primary-color;
-            padding: 0 15px;
+            padding: 0 20px;
         }
     }
 
@@ -72,9 +71,9 @@
     }
 
     &Gender {
-        // background-image: url('../../../images/');
+        background-image: url('../../../images/gender.png');
         background-repeat: no-repeat;
-        background-position: -6px 14px;
+        background-position: 1px 5px;
     }
 
     &Species {
@@ -105,6 +104,33 @@
         height: auto;
         padding: 12px 22px;
         border-radius: 50px;
-        color: $header-background-light;
     }
+}
+
+// Theme Dark/Light
+
+.card[data-theme='darkList'] {
+    background: $sidebar-background-dark;
+    box-shadow: 0 10px 10px #6E7191;
+    
+    p, h1 {
+        color: $sidebar-background-light;
+    }
+}
+
+.card[data-theme='lightList'] {
+    background: $sidebar-background-light;
+
+}
+
+.cardSpecies[data-theme='darkList'] {
+    background-image: url('../../../images/Dark/Alien.png');
+}
+
+.cardGender[data-theme='darkList'] {
+    background-image: url('../../../images/Dark/couple.png');
+}
+
+.cardPlanet[data-theme='darkList'] {
+    background-image: url('../../../images/Dark/Planet.svg');
 }

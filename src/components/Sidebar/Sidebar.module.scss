@@ -16,6 +16,12 @@
     background-color: $sidebar-background-light;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .logo {
     cursor: pointer;
     margin-bottom: 40px;
@@ -41,30 +47,77 @@
         width: 156px;
         display: block;
         cursor: pointer;
+        text-decoration: none;
     }
 
     &Home {
         background-image: url('../../images/home.png');
         background-repeat: no-repeat;
-        background-position: 6px 10px;
+        background-position: 16px 10px;
     }
 
     &Characters {
         background-image: url('../../images/users.png');
         background-repeat: no-repeat;
-        background-position: 6px 10px;
+        background-position: 16px 10px;
     }
 
     &Episodes {
         background-image: url('../../images/play.png');
         background-repeat: no-repeat;
-        background-position: 6px 10px;
+        background-position: 16px 10px;
     }
 
     &Locations {
         background-image: url('../../images/Planet.png');
         background-repeat: no-repeat;
-        background-position: 6px 10px;
+        background-position: 16px 10px;
     }
 }
 
+// Theme Dark/Light
+
+.sidebar[data-theme='darkSidebar'] {
+    background-color: $sidebar-background-dark;
+    
+    a {
+        color: $sidebar-background-light;
+    }
+}
+
+.sidebar[data-theme='lightSidebar'] {
+    background-color: $sidebar-background-light;
+
+}
+
+.itemHome[data-theme='darkSidebar'] {
+    background-image: url('../../images/Dark/home.png');
+}
+
+.itemCharacters[data-theme='darkSidebar'] {
+    background-image: url('../../images/Dark/users.png');
+}
+
+.itemEpisodes[data-theme='darkSidebar'] {
+    background-image: url('../../images/Dark/camera.png');
+}
+
+.itemLocations[data-theme='darkSidebar'] {
+    background-image: url('../../images/Dark/world.png');
+}
+
+// Active NavLink
+
+.active {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #11b0c84f;
+    border-radius: 12px;
+    width: 224px;
+    padding: 12px 16px;
+    color: $main-text;
+    align-items: center;
+}

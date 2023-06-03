@@ -3,14 +3,13 @@
 header {
     border-bottom: 1px solid $primary-color;
     max-width: $max-page-width;
-    background: $header-background-light;
 }
 
 .container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin: 20px 32px 20px 0;
+    padding: 20px 32px 20px 0;
 }
 
 .tools {
@@ -43,7 +42,7 @@ form {
 .inputBtn {
     border: none;
     border: 1px solid $button-color;
-    background-color: $header-background-light;
+    background-color: $sidebar-background-light;
     height: 42px;
     width: 42px;
     position: absolute;
@@ -77,17 +76,20 @@ button {
 .toggleLight {
     background-image: url('../../images/Sun.png');
     background-repeat: no-repeat;
-    background-position: 6px 6px;
+    background-position: 8px 8px;
+    background-color: $primary-color;
 }
 
 .toggleDark {
     background-image: url('../../images/Moon.svg');
     background-repeat: no-repeat;
-    background-position: 6px 6px;
+    background-position: 8px 8px;
+    background-color: $primary-color;
 }
 
 .authorizationWrapper {
     display: flex;
+    gap: 10px;
 
     a {
         font-family: Inter, sans-serif;
@@ -103,12 +105,29 @@ button {
     border-radius: 50px;
     padding: 12px 32px;
     color: $button-color;
-    background: $header-background-light;
 }
 
 .login {
     border-radius: 50px;
     padding: 12px 32px;
     background: $button-color;
-    color: $header-background-light;
+}
+
+.activeBtn {
+    background-color: $button-color;
+}
+
+// Theme Dark/Light
+
+.inputBtn[data-theme='darkHeader'] {
+    background-color: $main-background-dark;
+    background-image: url('../../images/Dark/search.png');
+    
+    p, h1 {
+        color: $sidebar-background-light;
+    }
+}
+
+.inputBtn[data-theme='lightHeader'] {
+    background-color: $main-background-light;
 }

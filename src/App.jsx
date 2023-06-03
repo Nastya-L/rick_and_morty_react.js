@@ -1,18 +1,25 @@
 import React from 'react';
+
 import './styles/App.scss';
 import './styles/reset.scss';
+
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
-import Home from './components/Home/Home';
+import { ThemeContext } from './components/UI/Theme/ThemeContext';
+import RoutesApp from './components/Routes/Routes';
+
 
 const App = () => {
-
 	return (
-		<div className="app">
-			<Header/>
-			<Sidebar/>
-			<Home/>
-		</div>
+		<ThemeContext.Consumer>
+			{({theme}) =>
+				<div className="app" id={theme}>
+					<Header/>
+					<Sidebar/>
+					<RoutesApp/>
+				</div>
+			}
+		</ThemeContext.Consumer>
 	);
 };
 

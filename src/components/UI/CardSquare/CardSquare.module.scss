@@ -6,7 +6,6 @@
     box-shadow: 0 10px 10px rgba(170, 198, 194, 10%);
     border-radius: 8px;
     max-width: 230px;
-    background: $header-background-light;
     padding: 15px;
     position: relative;
 
@@ -80,6 +79,7 @@
         background-image: url('../../../images/Alien.svg');
         background-repeat: no-repeat;
         background-position: -1px 3px;
+        fill: red;
     }
 
     &Planet {
@@ -104,6 +104,33 @@
         height: auto;
         padding: 12px 22px;
         border-radius: 50px;
-        color: $header-background-light;
     }
+}
+
+// Theme Dark/Light
+
+.card[data-theme='darkSquare'] {
+    background: $sidebar-background-dark;
+    box-shadow: 0 10px 10px #6E7191;
+    
+    p, h1 {
+        color: $sidebar-background-light;
+    }
+}
+
+.card[data-theme='lightSquare'] {
+    background: $sidebar-background-light;
+
+}
+
+.cardSpecies[data-theme='darkSquare'] {
+    background-image: url('../../../images/Dark/Alien.png');
+}
+
+.cardGender[data-theme='darkSquare'] {
+    background-image: url('../../../images/Dark/couple.png');
+}
+
+.cardPlanet[data-theme='darkSquare'] {
+    background-image: url('../../../images/Dark/Planet.svg');
 }

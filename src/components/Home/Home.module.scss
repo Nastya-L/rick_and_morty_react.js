@@ -3,7 +3,6 @@
 main {
     display: flex;
     justify-content: center;
-    background: $main-background-light;
     border-radius: 8px;
     margin: 0 15px;
     min-width: 70vw;
@@ -38,6 +37,7 @@ main {
     gap: 15px;
     flex-wrap: wrap;
     margin: 20px;
+    justify-content: center;
 }
 
 .activeBtn {
