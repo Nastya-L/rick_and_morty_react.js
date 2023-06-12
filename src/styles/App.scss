@@ -22,8 +22,13 @@ body {
 
 .app {
     margin: 0;
+    padding: 5px;
     height: 100%;
     min-height: 100vh;
+}
+
+a {
+    color: $main-text;
 }
 
 #light.app {

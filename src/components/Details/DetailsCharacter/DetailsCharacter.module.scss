@@ -1,0 +1,155 @@
+@import '../../../styles/App';
+
+.detailsCharacter {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    gap: 24px;
+    margin: 24px;
+    background: $sidebar-background-light;
+    box-shadow: 0 10px 10px rgba(170, 198, 194, 10%);
+    border-radius: 8px;
+
+    p, li {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $main-text;
+    }
+}
+
+.character {
+    max-width: 850px;
+
+    &Name {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 32px;
+    }
+
+    &Descr {
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.biography {
+    &Name {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 32px;
+        margin-top: 32px;
+    }
+}
+
+.interestingFacts {
+    margin: 32px 0 28px;
+
+    &Name {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 32px;
+        border-bottom: 1px solid $primary-color;
+        margin-bottom: 8px;
+    }
+
+    ul {
+        padding-left: 20px;
+
+        li {
+            list-style-type: disc;
+        }
+    }
+}
+
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+
+    a {
+        color: $primary-color;
+        font-family: Inter, sans-serif;
+        text-decoration: none;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    p {
+        padding: 20px 35px;
+    }
+}
+
+.state {
+    background-image: url('../../../images/DetailsCharacter/Pulse.png');
+    background-repeat: no-repeat;
+    background-position: -1px 19px;
+}
+
+.gender {
+    background-image: url('../../../images/DetailsCharacter/GenderIntersex.svg');
+    background-repeat: no-repeat;
+    background-position: 1px 17px;
+}
+
+.species {
+    background-image: url('../../../images/DetailsCharacter/Alien.png');
+    background-repeat: no-repeat;
+    background-position: 0 19px;
+}
+
+.planet {
+    background-image: url('../../../images/DetailsCharacter/planet.png');
+    background-repeat: no-repeat;
+    background-position: 1px 19px;
+}
+
+aside {
+    &Img {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        min-width: 30%;
+        width: 100%;
+    
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+// Theme Dark/Light
+
+.detailsCharacter[data-theme='darkDetailsCharacter'] {
+    background: $sidebar-background-dark;
+    box-shadow: 0 10px 10px #6E7191;
+    
+    p, h1, h2, h3, li, a {
+        color: $sidebar-background-light;
+    }
+}
+
+.gender[data-theme='darkDetailsCharacter'] {
+    background-image: url('../../../images/DetailsCharacter/Dark/GenderIntersex.svg');
+}
+
+.species[data-theme='darkDetailsCharacter'] {
+    background-image: url('../../../images/DetailsCharacter/Dark/Alien.png');
+}
+
+.planet[data-theme='darkDetailsCharacter'] {
+    background-image: url('../../../images/DetailsCharacter/Dark/planet.png');
+}

@@ -1,0 +1,26 @@
+@import '../../../styles/App';
+
+button {
+    height: 42px;
+    width: 42px;
+    border: none;
+    background-color: $button-color;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.more {
+    align-self: flex-end;
+    padding: 8px 20px;
+    border-radius: 50px;
+    height: 36px;
+    width: 110px;
+}
+
+a {
+    text-decoration: none;
+}

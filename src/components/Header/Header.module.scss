@@ -65,14 +65,6 @@ form {
   border-bottom: 2px solid $button-color;
 }
 
-button {
-    height: 42px;
-    width: 42px;
-    border: none;
-    background-color: $button-color;
-    cursor: pointer;
-}
-
 .toggleLight {
     background-image: url('../../images/Sun.png');
     background-repeat: no-repeat;

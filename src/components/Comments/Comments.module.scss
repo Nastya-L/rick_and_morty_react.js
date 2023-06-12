@@ -1,0 +1,122 @@
+@import '../../styles/App';
+
+textarea {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: $main-text;
+    outline: none;
+    resize: none;
+}
+
+textarea:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 25%);
+}
+
+textarea::placeholder {
+    color: $main-text;
+}
+
+.comments {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+    margin: 24px;
+    background: $sidebar-background-light;
+    box-shadow: 0 10px 10px rgba(170, 198, 194, 10%);
+    border-radius: 8px;
+
+    &Rating {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 28px;
+        color: $main-text;
+        display: flex;
+        gap: 25px;
+    }
+}
+
+.newComments {
+    display: flex;
+    flex-direction: column;
+
+    &Title {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: $main-text;
+    }
+    
+    &Form {
+        display: flex;
+        margin: 24px 0;
+        gap: 24px;
+        width: 100%;
+        align-items: center;
+    }
+
+    &Textarea {
+        width: 100%;
+        min-height: 50px;
+        max-height: 150px;
+        padding: 10px;
+    }
+
+    &Sumbit {
+        cursor: pointer;
+        width: auto;
+        border-radius: 50px;
+        padding: 8px 20px;
+    }
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    white-space: pre-wrap;
+
+    &Text {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: $main-text;
+        padding: 12px 24px;
+        border: 1px solid $primary-color;
+        overflow-wrap: anywhere;
+    }
+}
+
+// Theme Dark/Light
+
+.comments[data-theme='darkComments'] {
+    background: $sidebar-background-dark;
+    box-shadow: 0 10px 10px #6E7191;
+    
+    p, h1, h2, h3, li, a {
+        color: $sidebar-background-light;
+    }
+
+    textarea {
+        background-color: #11b0c84f;
+        color: $sidebar-background-light;
+    }
+
+    textarea:focus, textarea::placeholder {
+        color: $sidebar-background-light;
+    }
+}

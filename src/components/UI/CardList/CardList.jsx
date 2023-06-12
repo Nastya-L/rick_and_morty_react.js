@@ -4,6 +4,7 @@ import '../../../styles/reset.scss';
 import style from './CardList.module.scss';
 import imageCard from '../../../images/Morty.png';
 import { ThemeContext } from '../Theme/ThemeContext';
+import BtnDetails from '../BtnDetails/BtnDetails';
 
 function CardList(props) {
 	return (
@@ -31,7 +32,7 @@ function CardList(props) {
 						</div>
 						<p className={style.cardDescr}>{props.description}</p>
 						<button className={style.cardSave}></button>
-						<button className={style.cardMore}>Подробнее</button>
+						<BtnDetails/>
 					</div>
 				</div>
 			}

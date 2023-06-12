@@ -4,6 +4,7 @@ import '../../../styles/reset.scss';
 import style from './CardSquare.module.scss';
 import imageCard from '../../../images/Morty.png';
 import { ThemeContext } from '../Theme/ThemeContext';
+import BtnDetails from '../BtnDetails/BtnDetails';
 
 function CardSquare(props) {
 	return (
@@ -25,9 +26,9 @@ function CardSquare(props) {
 							<p data-theme={`${theme}Square`} 
 								className={style.cardPlanet}>{props.planet}</p>
 						</div>
-						<p className={style.cardDescr}>{props.description}</p>
+						<p className={style.cardDescr}>{props.description.slice(0, 120)}...</p>
 						<button className={style.cardSave}></button>
-						<button className={style.cardMore}>Подробнее</button>
+						<BtnDetails id={props.id}/>
 					</div>
 				</div>
 			}
