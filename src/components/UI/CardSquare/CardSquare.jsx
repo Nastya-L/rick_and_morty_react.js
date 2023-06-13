@@ -28,7 +28,7 @@ function CardSquare(props) {
 						</div>
 						<p className={style.cardDescr}>{props.description.slice(0, 120)}...</p>
 						<button className={style.cardSave}></button>
-						<BtnDetails id={props.id}/>
+						<BtnDetails id={props.id} route={'Character/'}/>
 					</div>
 				</div>
 			}

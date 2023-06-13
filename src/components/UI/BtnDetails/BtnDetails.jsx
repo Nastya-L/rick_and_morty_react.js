@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 function BtnDetails(props) {
 	return (
 		<button className={style.more} id={props.id}>
-			<NavLink to={'/Details/Character/'}>
+			<NavLink to={`/Details/${props.route}`}>
 				Подробнее
 			</NavLink>
 		</button>

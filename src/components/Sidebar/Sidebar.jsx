@@ -40,7 +40,7 @@ function Sidebar() {
 							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemLocations)}>
 								<NavLink data-theme={`${theme}Sidebar`} to={'/Locations'} 
 									className={({ isActive}) => isActive ? styles.active : styles.itemLocations}>
-									Локации</NavLink>
+									Планеты</NavLink>
 							</li>
 						</ul>
 					</nav>

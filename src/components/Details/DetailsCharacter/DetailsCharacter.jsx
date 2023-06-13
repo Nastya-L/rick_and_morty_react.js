@@ -80,7 +80,7 @@ function DetailsCharacter() {
 								</ul>
 							</article>
 						</article>
-						<aside>
+						<aside className={styles.aside}>
 							<div className={styles.asideImg}>
 								<img src={image} /> {/* Картинка */}
 							</div>

@@ -1,0 +1,29 @@
+@import '../../../styles/App';
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    gap: 20px;
+}
+
+.view {
+    &List {
+        background-image: url('../../../images/view-list.png');
+        background-repeat: no-repeat;
+        background-position: 12px 12px;
+        background-color: $primary-color;
+    }
+
+    &Square {
+        background-image: url('../../../images/Overview.png');
+        background-repeat: no-repeat;
+        background-position: 6px 8px;
+        background-color: $primary-color;
+    }
+}
+
+.activeBtn {
+    background-color: $button-color;
+}

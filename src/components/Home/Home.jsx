@@ -4,7 +4,7 @@ import '../../styles/reset.scss';
 import style from './Home.module.scss';
 import CardSquare from '../UI/CardSquare/CardSquare';
 import CardList from '../UI/CardList/CardList';
-import clas from 'classnames';
+import Display from '../UI/Display/Display';
 
 function Home() {
 	const character = [
@@ -48,39 +48,20 @@ function Home() {
 			rating: '2,8',
 			description: 'Саммер Смит (англ. Summer Smith) — старшая сестра Морти Смита, дочь Джерри и Бет Смит, внучка Рика и Дианы Санчез. Посещает школу Гарри Герпсона вместе с Морти.'
 		}];
-	
-	const [displayWay, setDisplayWay] = useState('square');
 
-	function displayList() {
-		setDisplayWay('list');
-	}
-
-	function displaySquare() {
-		setDisplayWay('square');
-	}
-
+	const [displayMode, setDisplayMode] = useState('square');
+		
 	return (
-		<>
-			<div className={style.display}>
-				<div className={style.view}>
-					<button
-						className={clas(style.viewList, (displayWay === 'list' ? style.activeBtn : ''))}
-						onClick={displayList}></button>
-					<button
-						className={clas(style.viewSquare, (displayWay === 'square' ? style.activeBtn : ''))}
-						onClick={displaySquare}></button>
-				</div>
-			</div>
-			<main>
-				<section className={style.container}>
-					{character.map((card) => {
-						return	displayWay === 'square' 
-							? <CardSquare {...card} key={card.id} /> 
-							: <CardList {...card} key={card.id} />;
-					})}
-				</section>
-			</main>
-		</>
+		<main>
+			<Display mode={displayMode} changeMode={setDisplayMode}/>
+			<section className={style.container}>
+				{character.map((card) => {
+					return	displayMode === 'square' 
+						? <CardSquare {...card} key={card.id} /> 
+						: <CardList {...card} key={card.id} />;
+				})}
+			</section>
+		</main>
 	);
 }
 

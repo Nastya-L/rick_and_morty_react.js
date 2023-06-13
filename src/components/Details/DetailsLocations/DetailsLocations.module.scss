@@ -1,8 +1,8 @@
 @import '../../../styles/App';
 
-.detailsCharacter {
+.detailsLocations {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     padding: 24px;
     gap: 24px;
     margin: 24px;
@@ -20,7 +20,7 @@
     }
 }
 
-.character {
+.locations {
     max-width: 850px;
 
     &Name {
@@ -39,7 +39,7 @@
     }
 }
 
-.biography {
+.history {
     &Name {
         font-family: Inter, sans-serif;
         font-style: normal;
@@ -50,7 +50,7 @@
     }
 }
 
-.interestingFacts {
+.interestingFacts, .inhabitants {
     margin: 32px 0 28px;
 
     &Name {
@@ -68,6 +68,7 @@
 
         li {
             list-style-type: disc;
+            margin: 0 5px;
         }
     }
 }
@@ -75,11 +76,12 @@
 
 .info {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 25px;
 
-    a {
-        color: $primary-color;
+    a, p, span {
+        color: $main-text;
         font-family: Inter, sans-serif;
         text-decoration: none;
         font-style: normal;
@@ -91,59 +93,30 @@
     p {
         padding: 20px 35px;
     }
+
+    span {
+        color: $primary-color;
+    }
 }
 
-.state {
-    background-image: url('../../../images/DetailsCharacter/Pulse.png');
-    background-repeat: no-repeat;
-    background-position: -1px 19px;
-}
-
-.gender {
-    background-image: url('../../../images/DetailsCharacter/GenderIntersex.svg');
-    background-repeat: no-repeat;
-    background-position: 1px 17px;
-}
-
-.species {
-    background-image: url('../../../images/DetailsCharacter/Alien.png');
-    background-repeat: no-repeat;
-    background-position: 0 19px;
-}
-
-.planet {
-    background-image: url('../../../images/DetailsCharacter/planet.png');
-    background-repeat: no-repeat;
-    background-position: 1px 19px;
-}
 
 .aside {
+    width: 100%;
+
     &Img {
         img {
-            max-width: 90%;
+            width: 100%;
         }
     }
 }
 
 // Theme Dark/Light
 
-.detailsCharacter[data-theme='darkDetailsCharacter'] {
+.detailsLocations[data-theme='darkDetailsLocations'] {
     background: $sidebar-background-dark;
     box-shadow: 0 10px 10px #6E7191;
     
-    p, h1, h2, h3, li, a {
+    p, h1, h2, h3, li, a, span {
         color: $sidebar-background-light;
     }
-}
-
-.gender[data-theme='darkDetailsCharacter'] {
-    background-image: url('../../../images/DetailsCharacter/Dark/GenderIntersex.svg');
-}
-
-.species[data-theme='darkDetailsCharacter'] {
-    background-image: url('../../../images/DetailsCharacter/Dark/Alien.png');
-}
-
-.planet[data-theme='darkDetailsCharacter'] {
-    background-image: url('../../../images/DetailsCharacter/Dark/planet.png');
 }

@@ -32,7 +32,7 @@ function CardList(props) {
 						</div>
 						<p className={style.cardDescr}>{props.description}</p>
 						<button className={style.cardSave}></button>
-						<BtnDetails/>
+						<BtnDetails id={props.id} route={'Character/'}/>
 					</div>
 				</div>
 			}
