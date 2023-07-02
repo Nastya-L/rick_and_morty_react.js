@@ -1,92 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './DetailsCharacter.module.scss';
-import image from '../../../images/Morty.png';
 import { ThemeContext } from '../../UI/Theme/ThemeContext';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import Comments from '../../Comments/Comments';
+import { routeCharacters, serverHost } from '../../../services/BackendUrl';
+import axios from 'axios';
 
 function DetailsCharacter() {
-	const rating = {rating: '2.8'};
+	const {id} = useParams();
+
+	const [cardDetail, setCardDetail] = useState([]);
+
+	useEffect(() => {
+		if (!id) return;
+		axios
+			.get(`${routeCharacters}/${id}`)
+			.then((Response) => {
+				Response.data.img = serverHost + Response.data.img;
+				setCardDetail(Response.data);
+			})
+			.catch((Error) => {
+				console.log('Error', Error);
+			});
+	}, [id]);
 
 	return (
 		<ThemeContext.Consumer>
 			{({theme}) =>
 				<>
-					<section className={styles.detailsCharacter} 
+					<section className={styles.detailsCharacter} id={cardDetail._id}
 						data-theme={`${theme}DetailsCharacter`}>
 						<article className={styles.character}> {/* Персонаж */}
 							<div className={styles.info}>
 								<p className={styles.state} 
 									data-theme={`${theme}DetailsCharacter`}>
-									<NavLink>Жив</NavLink>
+									<NavLink>{cardDetail.status}</NavLink>
 								</p>
 								<p data-theme={`${theme}DetailsCharacter`} 
 									className={styles.gender}>
-									<NavLink>Мужской</NavLink>
+									<NavLink>{cardDetail.gender}</NavLink>
 								</p>
 								<p data-theme={`${theme}DetailsCharacter`} 
 									className={styles.species}>
-									<NavLink>Человек</NavLink>
+									<NavLink>{cardDetail.species}</NavLink>
 								</p>
 								<p data-theme={`${theme}DetailsCharacter`} 
 									className={styles.planet}>
-									<NavLink>Земля</NavLink>
+									<NavLink>{cardDetail.planet}</NavLink>
 								</p>
 							</div>
 							<h1 className={styles.characterName}>
-								Морти Смит
+								{cardDetail.name}
 							</h1>
 							<p className={styles.characterDescr}>
-								<span>Морти Смит</span>
-								(англ. Morty Smith) или Мортимер «Морти» 
-								Смит-старший — является одним из главных героев сериала. Приходится внуком Рику и часто вынужден ходить по пятам на его различных
-								«злоключениях».
+								<span>{cardDetail.name} </span>
+								{cardDetail.description}
 							</p>
 							<article className={styles.biography}> {/* Биография */}
-								<h2 className={styles.biographyName}>
-									Биография
-								</h2>
 								<p>
-									<br/>Морти посещает школу имени Гарри Герпсона вместе со своей сестрой Саммер. Влюблен в Джессику.
+									{cardDetail.content}
 								</p>
-								<p>
-									<br/>Морти носит короткие каштановые волосы, всегда аккуратно причёсанные. Голова Морти имеет форму круга, в отличии от других персонажей. 
-									В основном, Морти носит жёлтую футболку, синие штаны и белые туфли. Имеется ярко выраженное заикание (даже когда спокоен), помимо 
-									прочего, периодически Морти говорит срывающимся голосом из-за полового созревания.
-								</p>
-								<p>
-									<br/>Морти — добродушный и впечатлительный, юный мальчик, очень ранимый и легко подверженный чужому влиянию, как все подростки в его возрасте. 
-									Парень не отличается большим умом, иногда слегка заикается, что делает его объектом насмешек в школе. Морти преданно влюблен в свою 
-									одноклассницу Джессику, которая на него не обращает никакого внимания. Несмотря на мягкотелость, в моменты опасности в Морти просыпается 
-									сообразительность и храбрость.
-								</p>
-								<p>
-									<br/>Имеет скрытую агрессию которою он пытается подавить, это на прямую указывается в 9-той серии 2 сезона «Судная Ночь» (англ. Look Who’s 
-									Purging Now). Также несмотря на то, что он полностью подвержен манипуляциям со стороны Рика, иногда находит в себе силы дать ему отпор, 
-									как, например, в серии «Мисикс и разрушение» (англ. Meeseeks and destroy) когда он стыдит Рика за его цинизм.
-								</p>
-							</article>
-							<article className={styles.interestingFacts}> {/* Интересные факты */}
-								<h2 className={styles.interestingFactsName}>
-									Интересные факты
-								</h2>
-								<ul>
-									<li>
-										Морти всегда готов отправиться кому-нибудь на помощь, какие бы последствия это не имело.
-									</li>
-									<li>
-										Также он постоянно исправляет за Риком его оплошности.
-									</li>
-								</ul>
 							</article>
 						</article>
 						<aside className={styles.aside}>
 							<div className={styles.asideImg}>
-								<img src={image} /> {/* Картинка */}
+								<img src={cardDetail.img} /> {/* Картинка */}
 							</div>
 						</aside>
 					</section>
-					<Comments {...rating}/>
+					<Comments rating={cardDetail.rating}/>
 				</>
 			}
 		</ThemeContext.Consumer>

@@ -62,12 +62,6 @@ nav {
         background-position: 16px 10px;
     }
 
-    &Episodes {
-        background-image: url('../../images/play.png');
-        background-repeat: no-repeat;
-        background-position: 16px 10px;
-    }
-
     &Locations {
         background-image: url('../../images/Planet.png');
         background-repeat: no-repeat;
@@ -96,10 +90,6 @@ nav {
 
 .itemCharacters[data-theme='darkSidebar'] {
     background-image: url('../../images/Dark/users.png');
-}
-
-.itemEpisodes[data-theme='darkSidebar'] {
-    background-image: url('../../images/Dark/camera.png');
 }
 
 .itemLocations[data-theme='darkSidebar'] {

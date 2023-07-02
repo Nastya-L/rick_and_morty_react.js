@@ -1,0 +1,20 @@
+@import '../../../styles/App';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+
+    &Wrap {
+        display: flex;
+    }
+
+    &Btn {
+        background-color: $primary-color;
+        color: $sidebar-background-light;
+    }
+}
+
+.paginationBtnActive {
+    background-color: $button-color;
+}

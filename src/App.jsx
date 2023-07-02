@@ -14,7 +14,9 @@ const App = () => {
 				<div className="app" id={theme}>
 					<Header/>
 					<Sidebar/>
-					<RoutesApp/>
+					<main>
+						<RoutesApp/>
+					</main>
 				</div>
 			}
 		</ThemeContext.Consumer>

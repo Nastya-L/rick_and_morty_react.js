@@ -32,11 +32,6 @@ function Sidebar() {
 									Персонажи
 								</NavLink>
 							</li>
-							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemEpisodes)}>
-								<NavLink data-theme={`${theme}Sidebar`} to={'/Episodes'} 
-									className={({ isActive}) => isActive ? styles.active : styles.itemEpisodes}>
-									Эпизоды</NavLink>
-							</li>
 							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemLocations)}>
 								<NavLink data-theme={`${theme}Sidebar`} to={'/Locations'} 
 									className={({ isActive}) => isActive ? styles.active : styles.itemLocations}>

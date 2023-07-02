@@ -1,1 +1,12 @@
 @import '../../styles/App';
+
+.container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+}

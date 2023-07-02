@@ -1,18 +1,1 @@
 @import '../../styles/App';
-
-main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 8px;
-    margin: 0 15px;
-    min-width: 70vw;
-}
-
-.container {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin: 20px;
-    justify-content: center;
-}
