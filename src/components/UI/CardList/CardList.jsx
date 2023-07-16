@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import '../../../styles/App.scss';
 import '../../../styles/reset.scss';
 import style from './CardList.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
 
-function CardList(props) {
+const CardList = forwardRef(function CardList(props, ref) {
+
 	return (
 		<ThemeContext.Consumer>
 			{({theme}) =>
-				<div className={style.card} data-theme={`${theme}List`}>
+				<div ref={ref} className={style.card} data-theme={`${theme}List`}>
 					<div className={style.cardImageWrapper}>
 						<div className={style.cardImage}>
 							<img src={props.img} />
@@ -31,14 +32,14 @@ function CardList(props) {
 								data-theme={`${theme}List`} 
 								className={style.cardPlanet}>{props.planet}</p>
 						</div>
-						<p className={style.cardDescr}>{props.description}</p>
+						<p className={style.cardDescr}>{props.description}...</p>
 						<button className={style.cardSave}></button>
-						<BtnDetails id={props.id} route={'Character/'}/>
+						<BtnDetails _id={props._id} route={'Character/'}/>
 					</div>
 				</div>
 			}
 		</ThemeContext.Consumer>
 	);
-}
+});
 
 export default CardList;

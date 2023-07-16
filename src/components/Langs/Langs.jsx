@@ -10,7 +10,7 @@ function Langs() {
 			{({theme}) =>
 				<div className={style.langs} data-theme={`${theme}Langs`}>
 					<span className={style.langsCurrent}>
-						Русский
+						English
 					</span>
 					<div className={style.langsMenu}>
 						<div className={style.lang}>

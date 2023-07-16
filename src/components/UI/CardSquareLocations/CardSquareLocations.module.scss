@@ -54,14 +54,6 @@
         grid-template-columns: 1fr 1fr;
         row-gap: 15px;
 
-        p {
-            font-family: Inter, sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 24px;
-            color: $primary-color;
-        }
     }
 
     &Save {

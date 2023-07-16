@@ -11,16 +11,27 @@ button {
     font-size: 14px;
     line-height: 20px;
     cursor: pointer;
+
+    a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none;
+    }
 }
 
 .more {
     align-self: flex-end;
     padding: 8px 20px;
     border-radius: 50px;
-    height: 36px;
-    width: 110px;
+    height: 60%;
+    min-width: 110px;
+    max-width: 125px;
+    width: 100%;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
-a {
-    text-decoration: none;
+a [data-theme='darkBtn'] {
+    color: $sidebar-background-light;
 }

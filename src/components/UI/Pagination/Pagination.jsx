@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './Pagination.module.scss';
 import clas from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
-import { createPages } from '../../../redux/actions';
 
+function Pagination({page, currentPage, changePage}) {
+	const [pages, setPages] = useState([]);
 
-function Pagination({page}) {
-	const dispatch = useDispatch();
-	const currentPage = useSelector(state => state.paginationReducer.currentPage);
+	useEffect(() => {
+		const arr = [];
+		for (let i = 1; i <= page; i++) {
+			arr.push(i);
+		}
+		setPages(arr);
+
+	}, [page]);
 
 	return (
 		<div className={style.pagination}>
 			<ul className={style.paginationWrap}>
-				{page.map((page, index) => ( 
+				{pages.map((page, index) => ( 
 					<li key={index} className={style.paginationItem}>
 						<button 
 							className={clas(style.paginationBtn, (currentPage == page ? style.paginationBtnActive : ''))}
-							onClick={() => dispatch(createPages(page))}>{page}</button>
+							onClick={() => changePage(page)}>{page}</button>
 					</li>
 				))}
 			</ul>

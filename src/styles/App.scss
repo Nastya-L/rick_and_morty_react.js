@@ -3,8 +3,9 @@ $header-background-dark: #000;
 $main-background-dark: #878787;
 $sidebar-background-dark: #191919;
 $sidebar-background-light: #FFF;
+$primary-text-color: #525256;
 $main-text: #191919;
-$primary-color: #6E7191;
+$primary-color: #9F9F9F;
 $button-color: #11B0C8;
 $max-page-width: 1920px;
 
@@ -37,7 +38,23 @@ main {
 }
 
 a {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
     color: $main-text;
+}
+
+
+p {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    color: $primary-text-color;
 }
 
 #light.app {
@@ -46,4 +63,8 @@ a {
 
 #dark.app {
     background: $main-background-dark;
+}
+
+#dark a {
+    color: #FFF;
 }

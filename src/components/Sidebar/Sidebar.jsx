@@ -22,20 +22,21 @@ function Sidebar() {
 						<ul className={styles.list}>
 							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemHome)}>
 								<NavLink data-theme={`${theme}Sidebar`} to={'/'} 
-									className={({ isActive}) => isActive ? styles.active : styles.itemHome}>
-									Главная
+									className={({ isActive}) => isActive ? styles.active : styles.itemLink}>
+									Home
 								</NavLink>
 							</li>
 							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemCharacters)}>
 								<NavLink data-theme={`${theme}Sidebar`} to={'/Characters'} 
-									className={({ isActive}) => isActive ? styles.active : styles.itemCharacters}>
-									Персонажи
+									className={({ isActive}) => isActive ? styles.active : styles.itemLink}>
+									Characters
 								</NavLink>
 							</li>
 							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemLocations)}>
 								<NavLink data-theme={`${theme}Sidebar`} to={'/Locations'} 
-									className={({ isActive}) => isActive ? styles.active : styles.itemLocations}>
-									Планеты</NavLink>
+									className={({ isActive}) => isActive ? styles.active : styles.itemLink}>
+									Locations
+								</NavLink>
 							</li>
 						</ul>
 					</nav>

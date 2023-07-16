@@ -6,10 +6,8 @@ import './styles/App.scss';
 import App from './App';
 import ThemeProvider from './components/UI/Theme/ThemeProvider';
 import { Provider } from 'react-redux';
-import {createStore } from 'redux';
-import { rootReducer } from './redux/rootReducer';
 
-const store = createStore(rootReducer);
+import { store } from './redux/rootReducer';
 
 const root = createRoot(document.getElementById('root'));
 

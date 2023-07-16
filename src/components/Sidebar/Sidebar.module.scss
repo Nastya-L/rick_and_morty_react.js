@@ -35,16 +35,9 @@ nav {
 }
 
 .item {
-    font-family: Inter, sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    color: $main-text;
-    
-    a {
+    &Link {
         padding: 12px 16px 12px 52px;
-        width: 156px;
+        min-width: 156px;
         display: block;
         cursor: pointer;
         text-decoration: none;
@@ -106,8 +99,13 @@ nav {
     line-height: 24px;
     background-color: #11b0c84f;
     border-radius: 12px;
-    width: 224px;
-    padding: 12px 16px;
+    min-width: 156px;
+    width: auto;
     color: $main-text;
     align-items: center;
+    padding: 12px 16px 12px 52px;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
 }
+

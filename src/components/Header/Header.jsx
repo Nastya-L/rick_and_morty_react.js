@@ -31,10 +31,10 @@ function Header() {
 						</div>
 						<div className={styles.authorizationWrapper}>
 							<div className={styles.singUp}>
-								<a>Регистрация</a>
+								<a>Sing up</a>
 							</div>
 							<div className={styles.login}>
-								<a>Войти</a>
+								<a>Log in</a>
 							</div>
 						</div>
 					</div>

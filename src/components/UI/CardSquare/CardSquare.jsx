@@ -2,7 +2,6 @@ import React from 'react';
 import '../../../styles/App.scss';
 import '../../../styles/reset.scss';
 import style from './CardSquare.module.scss';
-import clas from 'classnames';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
 
@@ -18,8 +17,8 @@ function CardSquare(props) {
 							<img src={props.img} />
 						</div>
 						<div className={style.cardWrapper}>
-							<h1 className={clas(style.cardName)}>{props.name}</h1>
-							<div className={clas(style.cardInfo)}>
+							<h1 className={style.cardName}>{props.name}</h1>
+							<div className={style.cardInfo}>
 								<p data-theme={`${theme}Square`} 
 									className={style.cardState}>{props.status}</p>
 								<p data-theme={`${theme}Square`} 

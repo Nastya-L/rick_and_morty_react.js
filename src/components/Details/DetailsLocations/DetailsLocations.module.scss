@@ -59,7 +59,7 @@
         font-weight: 400;
         font-size: 22px;
         line-height: 32px;
-        border-bottom: 1px solid $primary-color;
+        border-bottom: 1px solid $primary-text-color;
         margin-bottom: 8px;
     }
 
@@ -95,7 +95,7 @@
     }
 
     span {
-        color: $primary-color;
+        color: $primary-text-color;
     }
 }
 
