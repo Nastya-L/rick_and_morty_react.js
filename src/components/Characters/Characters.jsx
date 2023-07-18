@@ -8,6 +8,8 @@ import { routeCharacters, serverHost } from '../../services/BackendUrl';
 import axios from 'axios';
 import Pagination from '../UI/Pagination/Pagination';
 import { VIEW_SQUARE } from '../../redux/types';
+import LoadingSquare from '../UI/LoadingSquare/LoadingSquare';
+import LoadingList from '../UI/LoadingList/LoadingList';
 
 function Characters() {
 	const dispMode = useSelector(state => state.displayReducer.mode);
@@ -17,14 +19,23 @@ function Characters() {
 	const [limit, setLimit] = useState(3);
 	const [hasMore, setHasMore] = useState();
 	const [currentPage, setCurrentPage] = useState(1);
+	const [loading, setLoading] = useState(false);
+	const [loaderHolder, setLoaderHolder] = useState([]);
+
+	const loadingListHolder = [...Array(3)].map((e, i) => <LoadingList key={i}/>);
+
+	const loadingSquareHolder = [...Array(3)].map((e, i) => <LoadingSquare key={i}/>);
 
 	useLayoutEffect(() => {
+		setPages(0);
 		setCurrentPage(1);
 		setCards([]);
 		if (dispMode !== VIEW_SQUARE) {
 			setLimit(10);
+			setLoaderHolder(loadingListHolder);
 		} else {
 			setLimit(3);
+			setLoaderHolder(loadingSquareHolder);
 		}
 	},[dispMode]);
 
@@ -35,6 +46,8 @@ function Characters() {
 	const observer = useRef();
 
 	useEffect(() => {
+		const isWaiteForLoading = (cards.length == 0 || dispMode == VIEW_SQUARE);
+		setLoading(isWaiteForLoading);
 		axios
 			.get(`${routeCharacters}?page=${currentPage}&limit=${limit}`)
 			.then((Response) => {
@@ -49,7 +62,10 @@ function Characters() {
 					setCards(characters);
 				}
 				setHasMore(pages > currentPage);
-				setPages(pages);
+				setTimeout(() => {
+					setPages(pages);
+					setLoading(false);
+				}, isWaiteForLoading ? 1000 : 0);
 			})
 			.catch((Error) => {
 				console.log('Error', Error);
@@ -84,14 +100,17 @@ function Characters() {
 			<Display />
 			<section className={style.wrap}>
 				<div className={style.container} >
-					{cards.map((card, i) => {
-						if (dispMode === VIEW_SQUARE) {
-							return <CardSquare {...card} key={card._id} />;
-						}
-						else {
-							return <CardList {...card} ref={(i === cards.length - 1 ) ? lastElement : null} key={card._id} />;
-						}
-					})}
+					{loading
+						? loaderHolder
+						: cards.map((card, i) => {
+							if (dispMode === VIEW_SQUARE) {
+								return <CardSquare {...card} key={card._id} />;
+							}
+							else {
+								return <CardList {...card} ref={(i === cards.length - 1 ) ? lastElement : null} key={card._id} />;
+							}
+						})
+					}
 				</div>
 			</section>
 			{dispMode === VIEW_SQUARE

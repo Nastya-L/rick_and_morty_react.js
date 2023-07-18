@@ -1,0 +1,74 @@
+@import '../../../styles/App';
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-height: 550px;
+    min-height: 500px;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 10px 10px rgba(170, 198, 194, 10%);
+    border-radius: 8px;
+    max-width: 300px;
+    padding: 15px;
+    width: 100%;
+}
+
+.loading {
+    color: transparent;
+    background: linear-gradient(100deg, #F2F8FD 30%, #11B0C8 50%, #F2F8FD 70%);
+    background-size: 400%;
+    animation: loading 1.2s ease-in-out infinite;
+    border: 0;
+
+    &Img {
+        height: 243px;
+        width: 100%;
+    }
+
+    &Title {
+        height: 32px;
+        width: 100%;
+    }
+
+    &Info {
+        height: 63px;
+        width: 100%;
+    }
+
+    &Status {
+        height: 63px;
+        width: 100%;
+    }
+
+    &Descr {
+        height: 47px;
+        width: 100%;
+    }
+}
+
+.loading[data-theme='darkLoadingSquare'] {
+    background: linear-gradient(100deg, #9F9F9F 30%, #11B0C8 50%, #9F9F9F 70%);
+    background-size: 400%;
+    animation: loading 1.2s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+      background-position: 100% 50%;
+    }
+    
+    100% {
+      background-position: 0 50%;
+    }
+}
+
+.wrapper[data-theme='lightLoadingSquare'] {
+    background: $sidebar-background-light;
+
+}
+
+.wrapper[data-theme='darkLoadingSquare'] {
+    background: $sidebar-background-dark;
+    box-shadow: 0 10px 10px #6E7191;
+}
