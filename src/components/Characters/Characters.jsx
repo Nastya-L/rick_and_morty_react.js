@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState, useLayoutEffect } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import style from './Characters.module.scss';
 import { useSelector } from 'react-redux';
 import CardSquare from '../UI/CardSquare/CardSquare';
@@ -10,6 +10,7 @@ import Pagination from '../UI/Pagination/Pagination';
 import { VIEW_SQUARE } from '../../redux/types';
 import LoadingSquare from '../UI/LoadingSquare/LoadingSquare';
 import LoadingList from '../UI/LoadingList/LoadingList';
+import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
 
 function Characters() {
 	const dispMode = useSelector(state => state.displayReducer.mode);
@@ -20,11 +21,6 @@ function Characters() {
 	const [hasMore, setHasMore] = useState();
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(false);
-	const [loaderHolder, setLoaderHolder] = useState([]);
-
-	const loadingListHolder = [...Array(3)].map((e, i) => <LoadingList key={i}/>);
-
-	const loadingSquareHolder = [...Array(3)].map((e, i) => <LoadingSquare key={i}/>);
 
 	useLayoutEffect(() => {
 		setPages(0);
@@ -32,18 +28,10 @@ function Characters() {
 		setCards([]);
 		if (dispMode !== VIEW_SQUARE) {
 			setLimit(10);
-			setLoaderHolder(loadingListHolder);
 		} else {
 			setLimit(3);
-			setLoaderHolder(loadingSquareHolder);
 		}
 	},[dispMode]);
-
-	const options = {
-		threshold: [0, 0.5, 1]
-	};
-
-	const observer = useRef();
 
 	useEffect(() => {
 		const isWaiteForLoading = (cards.length == 0 || dispMode == VIEW_SQUARE);
@@ -72,52 +60,63 @@ function Characters() {
 			});
 	}, [currentPage, limit]);
 
-	const lastElement = useCallback(node => {
-		if (node !== null) {
-			if (observer.current) {
-				observer.current.disconnect();
-			}
-			observer.current = new IntersectionObserver(entries => {
-				if (entries[0].isIntersecting) {
-					if (hasMore == true) {
-						setCurrentPage(currentPage + 1);
-					}
-				}
-			},
-			{
-				options
-			});
-			observer.current.observe(node);
-		}
-	}, [hasMore]);
-
-	const changePage = useCallback(page => {
+	const changePage = (page) => {
 		setCurrentPage(page);
-	}, []);
+	};
+
+	const nextPage = () => {
+		setCurrentPage(currentPage + 1);
+	};
+
+	const renderList = (item, i, ref) => {
+		return <CardList {...item} ref={ref} key={item._id} />;
+	};
 
 	return (
 		<>
 			<Display />
 			<section className={style.wrap}>
-				<div className={style.container} >
-					{loading
-						? loaderHolder
-						: cards.map((card, i) => {
-							if (dispMode === VIEW_SQUARE) {
-								return <CardSquare {...card} key={card._id} />;
-							}
-							else {
-								return <CardList {...card} ref={(i === cards.length - 1 ) ? lastElement : null} key={card._id} />;
-							}
-						})
-					}
-				</div>
+				{(dispMode === VIEW_SQUARE) 
+					? <CardsView cards={cards} pages={pages} currentPage={currentPage} changePage={changePage} isloading={loading} />
+					: <ListView renderItem={renderList} items={cards} hasMore={hasMore} nextPage={nextPage} isloading={loading} />
+				}
 			</section>
-			{dispMode === VIEW_SQUARE
-				? <Pagination page={pages} currentPage={currentPage} changePage={changePage} />
-				: <></>}
 		</>
 	);
 }
+
+function CardsView({cards, currentPage, pages, changePage, isloading}) {
+
+	const loadingSquareHolder = [...Array(3)].map((e, i) => <LoadingSquare key={i}/>);
+
+	return (
+		<>
+			<div className={style.container}>
+				{isloading
+					? loadingSquareHolder
+					: cards.map((card, i) => {
+						return <CardSquare {...card} key={card._id} />;
+					})
+				}
+			</div>
+			<Pagination page={pages} currentPage={currentPage} changePage={changePage} />
+		</>
+	);
+}
+
+function ListView({items, hasMore, nextPage, renderItem, isloading}) {
+
+	const loadingListHolder = [...Array(3)].map((e, i) => <LoadingList key={i}/>);
+
+	return (
+		<>
+			{isloading
+				? loadingListHolder
+				: <InfiniteScroll items={items} hasMore={hasMore} nextPage={nextPage} renderItem={renderItem} />
+			}
+		</>
+	);
+}
+
 
 export default Characters;
