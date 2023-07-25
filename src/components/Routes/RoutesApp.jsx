@@ -5,6 +5,7 @@ import Characters from '../Characters/Characters';
 import Locations from '../Locations/Locations';
 import DetailsCharacter from '../Details/DetailsCharacter/DetailsCharacter';
 import DetailsLocations from '../Details/DetailsLocations/DetailsLocations';
+import FavoritesPages from '../Favorites/Favorites';
 
 function RoutesApp() {
 	return (
@@ -12,6 +13,7 @@ function RoutesApp() {
 			<Route path='/' element={<Home />} />
 			<Route path='/characters' element={<Characters />} />
 			<Route path='/locations' element={<Locations />} />
+			<Route path='/favorites' element={<FavoritesPages />}/>
 			<Route path='/details/character/:id' element={<DetailsCharacter />} />
 			<Route path='/details/locations/:id' element={<DetailsLocations />}/>
 		</Routes>

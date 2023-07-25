@@ -1,4 +1,4 @@
-import { VIEW_LIST, VIEW_SQUARE } from './types';
+import { USER_FAVORITE, VIEW_LIST, VIEW_SQUARE } from './types';
 
 export function viewList() {
 	return {
@@ -9,5 +9,12 @@ export function viewList() {
 export function viewSquare() {
 	return {
 		type: VIEW_SQUARE
+	};
+}
+
+export function userFavorite(arrayIds) {
+	return {
+		type: USER_FAVORITE,
+		payload: arrayIds
 	};
 }

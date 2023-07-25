@@ -91,24 +91,6 @@
         background-repeat: no-repeat;
         background-position: -1px 5px;
     }
-
-    &Save {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background-image: url('../../../images/Heart.png');
-        background-repeat: no-repeat;
-        background-position: 8px 7px;
-        border-radius: 5px;
-    }
-
-    &More {
-        align-self: flex-end;
-        width: auto;
-        height: auto;
-        padding: 12px 22px;
-        border-radius: 50px;
-    }
 }
 
 // Theme Dark/Light

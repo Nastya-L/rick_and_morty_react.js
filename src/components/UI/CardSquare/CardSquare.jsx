@@ -4,6 +4,7 @@ import '../../../styles/reset.scss';
 import style from './CardSquare.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
+import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
 
 function CardSquare(props) {
 	const description = props.description ? props.description.slice(0, 120) : '';
@@ -12,7 +13,7 @@ function CardSquare(props) {
 		<ThemeContext.Consumer>
 			{({theme}) =>
 				<>
-					<div className={style.card} data-theme={`${theme}Square`}>
+					<div className={style.card} data-theme={`${theme}Square`} key={props._id}>
 						<div className={style.cardImage}>
 							<img src={props.img} />
 						</div>
@@ -29,7 +30,7 @@ function CardSquare(props) {
 									className={style.cardPlanet}>{props.planet}</p>
 							</div>
 							<p className={style.cardDescr}>{description}...</p>
-							<button className={style.cardSave}></button>
+							<BtnAddFavorites _id={props._id} />
 							<BtnDetails _id={props._id} route={'character/'}/>
 						</div>
 					</div>

@@ -1,0 +1,18 @@
+@import '../../styles/App';
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+}
+
+.noFavorites {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    color: $primary-text-color;
+}

@@ -60,6 +60,12 @@ nav {
         background-repeat: no-repeat;
         background-position: 16px 10px;
     }
+
+    &Favorites {
+        background-image: url('../../images/heart-dark.png');
+        background-repeat: no-repeat;
+        background-position: 16px 10px;
+    }
 }
 
 // Theme Dark/Light
@@ -87,6 +93,10 @@ nav {
 
 .itemLocations[data-theme='darkSidebar'] {
     background-image: url('../../images/Dark/world.png');
+}
+
+.itemFavorites[data-theme='darkSidebar'] {
+    background-image: url('../../images/Dark/heart-light.png');
 }
 
 // Active NavLink

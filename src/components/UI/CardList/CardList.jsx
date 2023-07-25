@@ -4,13 +4,16 @@ import '../../../styles/reset.scss';
 import style from './CardList.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
+import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
 
 const CardList = forwardRef(function CardList(props, ref) {
+
+	const description = props.description ? props.description.slice(0, 120) : '';
 
 	return (
 		<ThemeContext.Consumer>
 			{({theme}) =>
-				<div ref={ref} className={style.card} data-theme={`${theme}List`}>
+				<div ref={ref} className={style.card} data-theme={`${theme}List`} key={props._id}>
 					<div className={style.cardImageWrapper}>
 						<div className={style.cardImage}>
 							<img src={props.img} />
@@ -32,8 +35,8 @@ const CardList = forwardRef(function CardList(props, ref) {
 								data-theme={`${theme}List`} 
 								className={style.cardPlanet}>{props.planet}</p>
 						</div>
-						<p className={style.cardDescr}>{props.description}...</p>
-						<button className={style.cardSave}></button>
+						<p className={style.cardDescr}>{description}...</p>
+						<BtnAddFavorites _id={props._id} />
 						<BtnDetails _id={props._id} route={'Character/'}/>
 					</div>
 				</div>

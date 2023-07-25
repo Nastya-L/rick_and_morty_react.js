@@ -3,6 +3,7 @@ import style from './CardListLocations.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import imageCard from '../../../images/planeta.png';
 import BtnDetails from '../BtnDetails/BtnDetails';
+import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
 
 function CardListLocations() {
 	return (
@@ -26,7 +27,7 @@ function CardListLocations() {
 						</div>
 						<p className={style.cardDescr}>Планета Судной ночи (англ. Purge Planet) — это планета без 
 							определенного названия, которая появилась в девятой серии второго сезона «Судная Ночь».</p>
-						<button className={style.cardSave}></button>
+						<BtnAddFavorites />
 						<BtnDetails route={'Locations/'} />
 					</div>
 				</div>
