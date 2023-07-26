@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux';
 import CardSquare from '../UI/CardSquare/CardSquare';
 import CardList from '../UI/CardList/CardList';
 import Display from '../UI/Display/Display';
-import { routeCharacters, serverHost } from '../../services/BackendUrl';
+import { routeCharacters } from '../../services/BackendUrl';
 import axios from 'axios';
 import Pagination from '../UI/Pagination/Pagination';
 import { VIEW_SQUARE } from '../../redux/types';
 import LoadingSquare from '../UI/LoadingSquare/LoadingSquare';
 import LoadingList from '../UI/LoadingList/LoadingList';
 import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
+import fixImgPath from '../../Utils/fixImgPath';
 
 function Characters() {
 	const dispMode = useSelector(state => state.displayReducer.mode);
@@ -39,11 +40,8 @@ function Characters() {
 		axios
 			.get(`${routeCharacters}?page=${currentPage}&limit=${limit}`)
 			.then((Response) => {
-				const characters = Response.data.characters;
 				const pages = Response.data.pages;
-				characters.forEach(item => {
-					item.img = serverHost + item.img;
-				});
+				const characters = fixImgPath(Response.data.characters);
 				if (dispMode !== VIEW_SQUARE) {
 					setCards([...cards,...characters]);
 				} else {

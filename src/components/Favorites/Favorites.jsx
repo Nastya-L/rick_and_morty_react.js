@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import { routeCharacters, serverHost } from '../../services/BackendUrl';
+import { routeCharacters } from '../../services/BackendUrl';
 import Display from '../UI/Display/Display';
 import CardSquare from '../UI/CardSquare/CardSquare';
 import CardList from '../UI/CardList/CardList';
 import style from './Favorites.module.scss';
 import { VIEW_SQUARE } from '../../redux/types';
+import fixImgPath from '../../Utils/fixImgPath';
 
 function FavoritesPages() {
 	const userFavorites = useSelector(state => state.favoritesReducer.ids);
@@ -20,10 +21,7 @@ function FavoritesPages() {
 			axios
 				.get(`${routeCharacters}/?id=${cardsId}`)
 				.then((Response) => {
-					const characters = Response.data.characters;
-					characters.forEach(item => {
-						item.img = serverHost + item.img;
-					});
+					const characters = fixImgPath(Response.data.characters);
 					setCards(characters);
 				})
 				.catch((Error) => {
