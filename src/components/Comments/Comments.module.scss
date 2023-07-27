@@ -50,6 +50,10 @@ textarea::placeholder {
     display: flex;
     flex-direction: column;
 
+    &Wrapp {
+        margin-bottom: 18px;
+    }
+
     &Title {
         font-family: Inter, sans-serif;
         font-style: normal;
@@ -98,6 +102,32 @@ textarea::placeholder {
         padding: 12px 24px;
         border: 1px solid $primary-color;
         overflow-wrap: anywhere;
+        position: relative;
+    }
+
+    &Data {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 14px;
+        color: $primary-color;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    &Delete {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-image: url('../../images/delete.png');
+        background-repeat: no-repeat;
+        background-position: 2px 2px;
+        padding: 10px;
+        width: auto;
+        height: auto;
+        background-color: #fff;
     }
 }
 
@@ -119,4 +149,9 @@ textarea::placeholder {
     textarea:focus, textarea::placeholder {
         color: $sidebar-background-light;
     }
+}
+
+.commentDelete[data-theme='darkComments'] {
+    background-color: $sidebar-background-dark;
+    background-image: url('../../images/Dark/delete.png');
 }

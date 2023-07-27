@@ -9,7 +9,7 @@ import axios from 'axios';
 function DetailsCharacter() {
 	const {id} = useParams();
 
-	const [cardDetail, setCardDetail] = useState([]);
+	const [cardDetail, setCardDetail] = useState({});
 
 	useEffect(() => {
 		if (!id) return;
@@ -22,7 +22,7 @@ function DetailsCharacter() {
 			.catch((Error) => {
 				console.log('Error', Error);
 			});
-	}, [id]);
+	}, []);
 
 	return (
 		<ThemeContext.Consumer>
@@ -68,7 +68,7 @@ function DetailsCharacter() {
 							</div>
 						</aside>
 					</section>
-					<Comments rating={cardDetail.rating}/>
+					<Comments id={id} comments={cardDetail.comments} rating={cardDetail.rating}/>
 				</>
 			}
 		</ThemeContext.Consumer>
