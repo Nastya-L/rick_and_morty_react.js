@@ -12,6 +12,7 @@ import LoadingSquare from '../UI/LoadingSquare/LoadingSquare';
 import LoadingList from '../UI/LoadingList/LoadingList';
 import InfiniteScroll from '../InfiniteScroll/InfiniteScroll';
 import fixImgPath from '../../Utils/fixImgPath';
+import Filter from '../UI/Filter/Filter';
 
 function Characters() {
 	const dispMode = useSelector(state => state.displayReducer.mode);
@@ -22,6 +23,7 @@ function Characters() {
 	const [hasMore, setHasMore] = useState();
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(false);
+	const [filterParam, setFilterParam] = useState();
 
 	useLayoutEffect(() => {
 		setPages(0);
@@ -38,7 +40,7 @@ function Characters() {
 		const isWaiteForLoading = (cards.length == 0 || dispMode == VIEW_SQUARE);
 		setLoading(isWaiteForLoading);
 		axios
-			.get(`${routeCharacters}?page=${currentPage}&limit=${limit}`)
+			.get(`${routeCharacters}?page=${currentPage}&limit=${limit}&${filterParam}`)
 			.then((Response) => {
 				const pages = Response.data.pages;
 				const characters = fixImgPath(Response.data.characters);
@@ -56,7 +58,14 @@ function Characters() {
 			.catch((Error) => {
 				console.log('Error', Error);
 			});
-	}, [currentPage, limit]);
+	}, [currentPage, limit, filterParam]);
+
+	const selectedFilter = (param) => {
+		if (param !== filterParam) {
+			setCards([]);
+			setFilterParam(param);
+		}
+	};
 
 	const changePage = (page) => {
 		setCurrentPage(page);
@@ -72,7 +81,10 @@ function Characters() {
 
 	return (
 		<>
-			<Display />
+			<div className={style.containerMode}>
+				<Filter selectedFilter={selectedFilter} />
+				<Display />
+			</div>
 			<section className={style.wrap}>
 				{(dispMode === VIEW_SQUARE) 
 					? <CardsView cards={cards} pages={pages} currentPage={currentPage} changePage={changePage} isloading={loading} />

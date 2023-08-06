@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../styles/App.scss';
 import '../../styles/reset.scss';
-import Display from '../UI/Display/Display';
+import Characters from '../Characters/Characters';
 
 function Home() {
 		
 	return (
 		<>
-			<Display />
+			<Characters />
 		</>
 	);
 }
