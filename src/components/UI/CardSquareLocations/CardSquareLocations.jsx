@@ -1,32 +1,33 @@
 import React from 'react';
 import style from './CardSquareLocations.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
-import imageCard from '../../../images/planeta.png';
 import BtnDetails from '../BtnDetails/BtnDetails';
 import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
 
-function CardSquareLocations() {
+function CardSquareLocations(props) {
+
+	const description = props.description ? props.description.slice(0, 120) : '';
+
 	return (
 		<ThemeContext.Consumer>
 			{({theme}) =>
 				<div className={style.card} data-theme={`${theme}SquareLocations`}>
 					<div className={style.cardImage}>
-						<img src={imageCard} />
+						<img src={props.img} />
 					</div>
 					<div className={style.cardWrapper}>
-						<h1 className={style.cardName}>Планета Судной ночи</h1>
+						<h1 className={style.cardName}>{props.name}</h1>
 						<div className={style.cardInfo}>
 							<p data-theme={`${theme}SquareLocations`} 
-								className={style.cardType}>Тип:</p>
-							<span>Планета</span>
+								className={style.cardType}>type:</p>
+							<span>{props.type}</span>
 							<p data-theme={`${theme}SquareLocations`} 
-								className={style.cardDweller}>Обитатели:</p>
-							<span>Кошачьи гуманоиды</span>
+								className={style.cardDweller}>inhabitants:</p>
+							<span>{props.dweller}</span>
 						</div>
-						<p className={style.cardDescr}>Планета Судной ночи (англ. Purge Planet) — это планета без 
-							определенного названия, которая появилась в девятой серии второго сезона «Судная Ночь».</p>
-						<BtnAddFavorites />
-						<BtnDetails route={'Locations/'}/>
+						<p className={style.cardDescr}>{description}...</p>
+						<BtnAddFavorites _id={props._id} />
+						<BtnDetails _id={props._id} route={'Locations/'}/>
 					</div>
 				</div>
 			}

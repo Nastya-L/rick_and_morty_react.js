@@ -1,6 +1,4 @@
 import React from 'react';
-import '../../../styles/App.scss';
-import '../../../styles/reset.scss';
 import style from './CardSquare.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';

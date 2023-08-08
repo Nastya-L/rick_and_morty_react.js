@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import style from './Filter.module.scss';
 import clas from 'classnames';
 import { ThemeContext } from '../Theme/ThemeContext';
-import axios from 'axios';
-import { routeCharacters } from '../../../services/BackendUrl';
 
-function Filter({selectedFilter}) {
+function Filter({selectedFilter, serverRequestFilter}) {
 
 	const [showFilter, setShowFilter] = useState(false);
 	const [selectedCategory, setSelectedCategory] = useState('');
@@ -23,14 +21,9 @@ function Filter({selectedFilter}) {
 			setAvailableCategories({});
 		} else {
 			setShowFilter(true);
-			axios
-				.get(`${routeCharacters}/categories`)
-				.then((Response) => {
-					setAvailableCategories(Response.data);
-				})
-				.catch((Error) => {
-					console.log('Error', Error);
-				});
+			serverRequestFilter().then((categories) => {
+				setAvailableCategories(categories);
+			});
 		}
 	}
 
@@ -40,9 +33,11 @@ function Filter({selectedFilter}) {
 	}
 
 	function ClickParam(param) {
-		setSelectedOptionParam(param);
-		const filter = `${selectedCategory}=${param}`;
-		selectedFilter(filter);
+		if (selectedOptionParam !== param) {
+			setSelectedOptionParam(param);
+			const filter = `${selectedCategory}=${param}`;
+			selectedFilter(filter);
+		}
 	}
 
 	return (

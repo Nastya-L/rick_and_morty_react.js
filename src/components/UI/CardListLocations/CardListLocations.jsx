@@ -1,39 +1,42 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import style from './CardListLocations.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
-import imageCard from '../../../images/planeta.png';
 import BtnDetails from '../BtnDetails/BtnDetails';
 import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
 
-function CardListLocations() {
+const CardListLocations = forwardRef(function CardListLocations(props, ref) {
+
+	const description = props.description ? props.description.slice(0, 120) : '';
+
 	return (
 		<ThemeContext.Consumer>
 			{({theme}) =>
-				<div className={style.card} data-theme={`${theme}ListLocations`}>
-					<div className={style.cardImage}>
-						<img src={imageCard} />
+				<div ref={ref} className={style.card} data-theme={`${theme}ListLocations`} key={props._id}>
+					<div className={style.cardImageWrapper}>
+						<div className={style.cardImage}>
+							<img src={props.img} />
+						</div>
 					</div>
 					<div className={style.cardWrapper}>
-						<h1 className={style.cardName}>Планета Судной ночи</h1>
+						<h1 className={style.cardName}>{props.name}</h1>
 						<div className={style.cardInfo}>
 							<p 
 								className={style.cardType} 
-								data-theme={`${theme}ListLocations`}>Тип:</p>
-							<span>Планета</span>
+								data-theme={`${theme}ListLocations`}>type:</p>
+							<span>{props.type}</span>
 							<p 
 								data-theme={`${theme}ListLocations`} 
-								className={style.cardDweller}>Обитатели:</p>
-							<span>Кошачьи гуманоиды</span>
+								className={style.cardDweller}>inhabitants:</p>
+							<span>{props.dweller}</span>
 						</div>
-						<p className={style.cardDescr}>Планета Судной ночи (англ. Purge Planet) — это планета без 
-							определенного названия, которая появилась в девятой серии второго сезона «Судная Ночь».</p>
-						<BtnAddFavorites />
-						<BtnDetails route={'Locations/'} />
+						<p className={style.cardDescr}>{description}...</p>
+						<BtnAddFavorites _id={props._id} />
+						<BtnDetails _id={props._id} route={'Locations/'} />
 					</div>
 				</div>
 			}
 		</ThemeContext.Consumer>
 	);
-}
+});
 
 export default CardListLocations;
