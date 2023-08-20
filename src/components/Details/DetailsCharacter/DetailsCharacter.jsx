@@ -68,7 +68,7 @@ function DetailsCharacter() {
 							</div>
 						</aside>
 					</section>
-					<Comments id={id} comments={cardDetail.comments} rating={cardDetail.rating}/>
+					<Comments rating={cardDetail.rating} id={id} comments={cardDetail.comments} route={routeCharacters} />
 				</>
 			}
 		</ThemeContext.Consumer>

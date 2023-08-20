@@ -6,7 +6,7 @@ import CreatStar from '../UI/CreatStar/CreatStar';
 import axios from 'axios';
 import { routeCharacters } from '../../services/BackendUrl';
 
-function Comments({rating, id, comments}) {
+function Comments({rating, id, comments, route}) {
 	const [arryaComments, setArryaComments] = useState([]);
 	const [formText, setformText] = useState('');
 
@@ -25,7 +25,7 @@ function Comments({rating, id, comments}) {
 				message: formText,
 			};
 			axios
-				.post(`${routeCharacters}/${id}/comments`, message)
+				.post(`${route}/${id}/comments`, message)
 				.then((Response) => {
 					setArryaComments([Response.data, ...arryaComments]);
 					setformText('');
@@ -38,7 +38,7 @@ function Comments({rating, id, comments}) {
 
 	function deleteComment(idComment) {
 		axios
-			.delete(`${routeCharacters}/${id}/comments/${idComment}`)
+			.delete(`${route}/${id}/comments/${idComment}`)
 			.then(() => {
 				const newArryaComments = arryaComments.filter((e) => e._id !== idComment);
 				setArryaComments(newArryaComments);

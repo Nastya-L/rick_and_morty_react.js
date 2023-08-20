@@ -63,7 +63,7 @@ function DetailsLocations() {
 							</div>
 						</aside>
 					</section>
-					<Comments id={id} comments={cardDetail.comments} rating={cardDetail.rating}/>
+					<Comments rating={cardDetail.rating} id={id} comments={cardDetail.comments} route={routeLocations} />
 				</>
 			}
 		</ThemeContext.Consumer>
