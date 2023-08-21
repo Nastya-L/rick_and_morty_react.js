@@ -4,7 +4,6 @@ import clas from 'classnames';
 import { ThemeContext } from '../UI/Theme/ThemeContext';
 import CreatStar from '../UI/CreatStar/CreatStar';
 import axios from 'axios';
-import { routeCharacters } from '../../services/BackendUrl';
 
 function Comments({rating, id, comments, route}) {
 	const [arryaComments, setArryaComments] = useState([]);

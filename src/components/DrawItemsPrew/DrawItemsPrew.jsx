@@ -64,18 +64,23 @@ const DrawItemsPrew = ({serverRequestFilter, serverRequest, drawSquare, drawList
 
 	return (
 		<>
-			<div className={style.containerMode}>
-				<Filter selectedFilter={selectedFilter} serverRequestFilter={serverRequestFilter} />
-				<Display />
-			</div>
-			<section className={style.wrap}>
-				{(dispMode === VIEW_SQUARE) 
-					? <CardsView DrawSquare={drawSquare} cards={cards} pages={pages} currentPage={currentPage} changePage={changePage} isloading={loading} />
-					: <ListView renderItem={drawList} items={cards} hasMore={hasMore} nextPage={nextPage} isloading={loading} />
-				}
-			</section>
+			{cards.length > 0
+				? <>
+					<div className={style.containerMode}>
+						<Filter selectedFilter={selectedFilter} serverRequestFilter={serverRequestFilter} />
+						<Display />
+					</div>
+					<section className={style.wrap}>
+						{(dispMode === VIEW_SQUARE) 
+							? <CardsView DrawSquare={drawSquare} cards={cards} pages={pages} currentPage={currentPage} changePage={changePage} isloading={loading} />
+							: <ListView renderItem={drawList} items={cards} hasMore={hasMore} nextPage={nextPage} isloading={loading} />
+						}
+					</section>
+				</>
+				: <h1 className={style.containerCardNot}>There are no Cards </h1>
+			}
+			
 		</>
-		
 	);
 };
 

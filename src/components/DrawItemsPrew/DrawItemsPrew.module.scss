@@ -11,6 +11,16 @@
         display: flex;
         justify-content: space-between;
     }
+
+    &CardNot {
+        font-family: Inter, sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 48px;
+        color: $primary-text-color;
+        align-self: center;
+    }
 }
 
 .wrap {

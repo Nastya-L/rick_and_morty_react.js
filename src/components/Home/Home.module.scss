@@ -1,1 +1,48 @@
 @import '../../styles/App';
+
+.container {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    margin: 20px 0;
+
+    &Card {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        width: 100%;
+        
+        &Not {
+            font-family: Inter, sans-serif;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 48px;
+            color: $primary-text-color;
+        }
+    }
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.routeAll {
+    padding: 12px 25px 12px 16px;
+    background-image: url('../../images/arrows.png');
+    background-repeat: no-repeat;
+    background-position: 84px 16px;
+}
+
+.routeAll:hover {
+    font-weight: 600;
+}
+
+.routeAll[data-theme='darkHome'] {
+    background-image: url('../../images/Dark/arrows-black.png');
+}
