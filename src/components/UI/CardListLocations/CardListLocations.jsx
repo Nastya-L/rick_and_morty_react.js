@@ -26,12 +26,12 @@ const CardListLocations = forwardRef(function CardListLocations(props, ref) {
 							<span>{props.type}</span>
 							<p 
 								data-theme={`${theme}ListLocations`} 
-								className={style.cardDweller}>inhabitants:</p>
-							<span>{props.dweller}</span>
+								className={style.cardDweller}>dimension:</p>
+							<span>{props.dimension}</span>
 						</div>
 						<p className={style.cardDescr}>{description}...</p>
 						<BtnAddFavorites _id={props._id} />
-						<BtnDetails _id={props._id} route={'Locations/'} />
+						<BtnDetails _id={props._id} route={'locations/'} />
 					</div>
 				</div>
 			}

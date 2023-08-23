@@ -45,7 +45,6 @@
         line-height: 32px;
         color: $main-text;
         margin-top: 15px;
-        text-transform: capitalize;
     }
     
 
@@ -65,10 +64,6 @@
         justify-items: start;
         row-gap: 15px;
 
-        p, span {
-            text-transform: capitalize;
-        }
-
         span {
             font-family: Inter, sans-serif;
             font-style: normal;
@@ -76,6 +71,7 @@
             font-size: 16px;
             line-height: 24px;
             color: $primary-text-color;
+            text-transform: capitalize;
         }
     }
 }

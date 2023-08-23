@@ -8,6 +8,7 @@ import LoadingList from '../UI/LoadingList/LoadingList';
 import style from './DrawItemsPrew.module.scss';
 import Filter from '../UI/Filter/Filter';
 import Display from '../UI/Display/Display';
+import { ThemeContext } from '../UI/Theme/ThemeContext';
 
 const DrawItemsPrew = ({serverRequestFilter, serverRequest, drawSquare, drawList}) => {
 
@@ -35,18 +36,23 @@ const DrawItemsPrew = ({serverRequestFilter, serverRequest, drawSquare, drawList
 	useEffect(() => {
 		const isWaiteForLoading = (cards.length == 0 || dispMode == VIEW_SQUARE);
 		setLoading(isWaiteForLoading);
-		serverRequest(limit,currentPage, filterParam).then(([items, pagesServer]) => {
-			if (dispMode !== VIEW_SQUARE) {
-				setCards([...cards, ...items]);
-			} else {
-				setCards(items);
-			}
-			setHasMore(pagesServer > currentPage);
-			setTimeout(() => {
-				setPages(pagesServer);
+		serverRequest(limit,currentPage, filterParam)
+			.then(([items, pagesServer]) => {
+				if (dispMode !== VIEW_SQUARE) {
+					setCards([...cards, ...items]);
+				} else {
+					setCards(items);
+				}
+				setHasMore(pagesServer > currentPage);
+				setTimeout(() => {
+					setPages(pagesServer);
+					setLoading(false);
+				}, isWaiteForLoading ? 1000 : 0);
+			})
+			.catch((Error) => {
 				setLoading(false);
-			}, isWaiteForLoading ? 1000 : 0);
-		});
+				console.log(Error, 'Error');
+			});
 	}, [currentPage, limit, filterParam]);
 
 	const changePage = (page) => {
@@ -58,44 +64,52 @@ const DrawItemsPrew = ({serverRequestFilter, serverRequest, drawSquare, drawList
 	};
 
 	const selectedFilter = (param) => {
-		setCards([]);
-		setFilterParam(param);
+		if (filterParam !== param) {
+			setFilterParam(param);
+			setCurrentPage(1);
+			setCards([]);
+		}
 	};
 
 	return (
 		<>
-			{cards.length > 0
-				? <>
-					<div className={style.containerMode}>
-						<Filter selectedFilter={selectedFilter} serverRequestFilter={serverRequestFilter} />
-						<Display />
-					</div>
-					<section className={style.wrap}>
-						{(dispMode === VIEW_SQUARE) 
-							? <CardsView DrawSquare={drawSquare} cards={cards} pages={pages} currentPage={currentPage} changePage={changePage} isloading={loading} />
-							: <ListView renderItem={drawList} items={cards} hasMore={hasMore} nextPage={nextPage} isloading={loading} />
-						}
-					</section>
-				</>
-				: <h1 className={style.containerCardNot}>There are no Cards </h1>
-			}
-			
+			<div className={style.containerMode}>
+				<Filter selectedFilter={selectedFilter} serverRequestFilter={serverRequestFilter} />
+				<Display />
+			</div>
+			<section>
+				{(dispMode === VIEW_SQUARE) 
+					? <CardsView DrawSquare={drawSquare} cards={cards} pages={pages} currentPage={currentPage} changePage={changePage} isloading={loading} />
+					: <ListView renderItem={drawList} items={cards} hasMore={hasMore} nextPage={nextPage} isloading={loading} />
+				}
+			</section>
 		</>
 	);
 };
 
+function NoCards() {
+	return (
+		<ThemeContext.Consumer>
+			{({theme}) =>
+				<h1 data-theme={`${theme}DrawItemsPrew`} className={style.containerCardNot}>There are no Cards </h1>
+			}
+		</ThemeContext.Consumer>
+	);
+}
+
 function CardsView({cards, currentPage, pages, changePage, isloading, DrawSquare}) {
 
 	const loadingSquareHolder = [...Array(3)].map((e, i) => <LoadingSquare key={i}/>);
+	const renderCards = (cards.length > 0) 
+		? cards.map((card) => <DrawSquare {...card} key={card._id} />) 
+		: <NoCards />;
 
 	return (
 		<>
 			<div className={style.container}>
 				{isloading
 					? loadingSquareHolder
-					: cards.map((card) => {
-						return <DrawSquare {...card} key={card._id} />;
-					})
+					: renderCards
 				}
 			</div>
 			<Pagination page={pages} currentPage={currentPage} changePage={changePage} />
@@ -106,12 +120,15 @@ function CardsView({cards, currentPage, pages, changePage, isloading, DrawSquare
 function ListView({items, hasMore, nextPage, renderItem, isloading}) {
 
 	const loadingListHolder = [...Array(3)].map((e, i) => <LoadingList key={i}/>);
+	const renderLists = (items.length > 0) 
+		? <InfiniteScroll items={items} hasMore={hasMore} nextPage={nextPage} renderItem={renderItem} /> 
+		: <NoCards />;
 
 	return (
 		<>
 			{isloading
 				? loadingListHolder
-				: <InfiniteScroll items={items} hasMore={hasMore} nextPage={nextPage} renderItem={renderItem} />
+				: renderLists
 			}
 		</>
 	);

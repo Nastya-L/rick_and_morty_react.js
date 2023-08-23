@@ -1,22 +1,21 @@
 @import '../../styles/App';
 
 .langs {
-    color: $main-text;
     font-family: Inter, sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
+    color: $main-text;
     cursor: pointer;
     position: relative;
+    align-self: flex-start;
     transition: color 0.25s;
-    padding: 13px 19px 15px 24px;
     background-image: url('../../images/dropdown.png');
     background-repeat: no-repeat;
     background-position: 70px 14px;
     margin: 20px 0;
-    align-self: flex-start;
-
+    padding: 13px 19px 15px 24px;
 
     &Menu {
         padding: 10px 15px;

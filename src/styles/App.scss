@@ -23,18 +23,20 @@ body {
 
 main {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     border-radius: 8px;
     margin: 0 15px;
     min-width: 70vw;
+    min-height: 70vh;
 }
 
-.app {
-    margin: 0;
-    padding: 5px;
-    height: 100%;
-    min-height: 100vh;
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: auto;
 }
 
 a {
@@ -45,9 +47,35 @@ a {
     line-height: 24px;
     cursor: pointer;
     color: $main-text;
-    text-decoration: none;
+    text-transform: capitalize;
 }
 
+button {
+    height: 42px;
+    width: 42px;
+    border: none;
+    background-color: $button-color;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+
+    a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: none;
+    }
+}
+
+.app {
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    min-height: 100vh;
+}
 
 p {
     font-family: Inter, sans-serif;
@@ -56,6 +84,7 @@ p {
     font-size: 16px;
     line-height: 24px;
     color: $primary-text-color;
+    text-transform: capitalize;
 }
 
 #light.app {

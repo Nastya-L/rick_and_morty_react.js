@@ -1,0 +1,33 @@
+@import '../../../styles/App';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    gap: 50px;
+}
+
+.title {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 64px;
+    color: $primary-text-color;
+}
+
+.descr {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    color: $primary-text-color;
+    text-transform: inherit;
+}
+
+// Theme Dark/Light
+
+.title[data-theme='darkError'], .descr[data-theme='darkError']{
+    color: $sidebar-background-light;
+}
+

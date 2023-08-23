@@ -35,7 +35,7 @@ const CardList = forwardRef(function CardList(props, ref) {
 						</div>
 						<p className={style.cardDescr}>{description}...</p>
 						<BtnAddFavorites _id={props._id} />
-						<BtnDetails _id={props._id} route={'Character/'}/>
+						<BtnDetails _id={props._id} route={'character/'}/>
 					</div>
 				</div>
 			}

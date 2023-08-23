@@ -20,7 +20,7 @@ function Pagination({page, currentPage, changePage}) {
 				{pages.map((page, index) => ( 
 					<li key={index} className={style.paginationItem}>
 						<button 
-							className={clas(style.paginationBtn, (currentPage == page ? style.paginationBtnActive : ''))}
+							className={clas(style.paginationBtn, (currentPage == page && style.paginationBtnActive))}
 							onClick={() => changePage(page)}>{page}</button>
 					</li>
 				))}

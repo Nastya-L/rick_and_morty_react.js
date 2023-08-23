@@ -21,10 +21,10 @@ function Display() {
 		<div className={style.display}>
 			<div className={style.view}>
 				<button
-					className={clas(style.viewList, (dispMode === VIEW_LIST ? style.activeBtn : ''))}
+					className={clas(style.viewList, (dispMode === VIEW_LIST && style.activeBtn))}
 					onClick={displayList} ></button>
 				<button
-					className={clas(style.viewSquare, (dispMode === VIEW_SQUARE ? style.activeBtn : ''))}
+					className={clas(style.viewSquare, (dispMode === VIEW_SQUARE && style.activeBtn))}
 					onClick={displaySquare} ></button>
 			</div>
 		</div>

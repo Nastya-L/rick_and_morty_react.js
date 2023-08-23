@@ -8,6 +8,7 @@ import CardList from '../UI/CardList/CardList';
 import style from './Favorites.module.scss';
 import { VIEW_SQUARE } from '../../redux/types';
 import fixImgPath from '../../Utils/fixImgPath';
+import { ThemeContext } from '../UI/Theme/ThemeContext';
 
 function FavoritesPages() {
 	const userFavorites = useSelector(state => state.favoritesReducer.ids);
@@ -34,17 +35,21 @@ function FavoritesPages() {
 	},[userFavorites]);
 
 	return (
-		<>
-			<Display />
-			<section className={style.wrap}>
-				{(cards.length <= 0) && <h1 className={style.noFavorites}>No favorites saved</h1>}
-				{cards.map((card) => {
-					return	dispMode === VIEW_SQUARE
-						? <CardSquare {...card} key={card._id} /> 
-						: <CardList {...card} key={card._id} />;
-				})}
-			</section>
-		</>
+		<ThemeContext.Consumer>
+			{({theme}) =>
+				<>
+					<Display />
+					<section className={style.wrap}>
+						{(cards.length <= 0) && <h1 data-theme={`${theme}Favorites`} className={style.noFavorites}>No favorites saved</h1>}
+						{cards.map((card) => {
+							return	dispMode === VIEW_SQUARE
+								? <CardSquare {...card} key={card._id} /> 
+								: <CardList {...card} key={card._id} />;
+						})}
+					</section>
+				</>	
+			}
+		</ThemeContext.Consumer>
 	);
 }
 

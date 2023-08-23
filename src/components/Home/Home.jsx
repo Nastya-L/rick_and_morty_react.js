@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import style from './Home.module.scss';
-import clas from 'classnames';
 import { routeCharacters } from '../../services/BackendUrl';
 import { routeLocations } from '../../services/BackendUrl';
 import axios from 'axios';
@@ -41,22 +40,22 @@ function Home() {
 		<ThemeContext.Consumer>
 			{({theme}) => 
 				<section className={style.container}>
-					<div className={clas(style.wrap)}>
+					<div className={style.wrap}>
 						<NavLink data-theme={`${theme}Home`} to={'/characters'} className={style.routeAll}>View All</NavLink>
 						<div className={style.containerCard}>
 							{responseCharacters.length > 0 
 								? responseCharacters.map((card) => {
 									return <CardSquare {...card} key={card._id} />;})
-								: <h1 className={style.containerCardNot}>There are no Characters</h1>}
+								: <h1 data-theme={`${theme}Home`} className={style.containerCardNot}>There are no Characters</h1>}
 						</div>
 					</div>
-					<div className={clas(style.wrap)}>
+					<div className={style.wrap}>
 						<NavLink data-theme={`${theme}Home`} to={'/locations'} className={style.routeAll}>View All</NavLink>
 						<div className={style.containerCard}>
 							{responseLocations.length > 0
 								? responseLocations.map((card) => {
 									return <CardSquareLocations {...card} key={card._id}/>;})
-								: <h1 className={style.containerCardNot}>There are no Locations</h1>}
+								: <h1 data-theme={`${theme}Home`} className={style.containerCardNot}>There are no Locations</h1>}
 						</div>
 					</div>
 				</section>

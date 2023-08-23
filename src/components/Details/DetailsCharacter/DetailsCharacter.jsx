@@ -30,7 +30,7 @@ function DetailsCharacter() {
 				<>
 					<section className={styles.detailsCharacter} id={cardDetail._id}
 						data-theme={`${theme}DetailsCharacter`}>
-						<article className={styles.character}> {/* Персонаж */}
+						<article className={styles.character}>
 							<div className={styles.info}>
 								<p className={styles.state} 
 									data-theme={`${theme}DetailsCharacter`}>
@@ -56,7 +56,7 @@ function DetailsCharacter() {
 								<span>{cardDetail.name} </span>
 								{cardDetail.description}
 							</p>
-							<article className={styles.biography}> {/* Биография */}
+							<article className={styles.biography}>
 								<p>
 									{cardDetail.content}
 								</p>
@@ -64,7 +64,7 @@ function DetailsCharacter() {
 						</article>
 						<aside className={styles.aside}>
 							<div className={styles.asideImg}>
-								<img src={cardDetail.img} /> {/* Картинка */}
+								<img src={cardDetail.img} />
 							</div>
 						</aside>
 					</section>

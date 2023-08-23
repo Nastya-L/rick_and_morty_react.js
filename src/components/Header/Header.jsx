@@ -1,9 +1,5 @@
 import React from 'react';
 import clas from 'classnames';
-
-import '../../styles/App.scss';
-import '../../styles/reset.scss';
-
 import styles from './Header.module.scss';
 import { ThemeContext } from '../UI/Theme/ThemeContext';
 
@@ -22,11 +18,11 @@ function Header() {
 							</form>
 							<button 
 								onClick={chooseLight} 
-								className={clas(styles.toggleLight, (theme === 'light' ? styles.activeBtn : ''))}
+								className={clas(styles.toggleLight, (theme === 'light' && styles.activeBtn))}
 							></button>
 							<button 
 								onClick={chooseDark}
-								className={clas(styles.toggleDark, (theme === 'dark' ? styles.activeBtn : ''))}
+								className={clas(styles.toggleDark, (theme === 'dark' && styles.activeBtn))}
 							></button>
 						</div>
 						<div className={styles.authorizationWrapper}>

@@ -2,10 +2,11 @@
 
 .container {
     display: flex;
-    gap: 35px;
-    flex-wrap: wrap;
-    width: 100%;
     justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    gap: 35px;
+    width: 100%;
     margin: 20px 0;
 
     &Card {
@@ -41,6 +42,12 @@
 
 .routeAll:hover {
     font-weight: 600;
+}
+
+// Theme Dark/Light
+
+.containerCardNot[data-theme='darkHome'] {
+    color: $sidebar-background-light;
 }
 
 .routeAll[data-theme='darkHome'] {

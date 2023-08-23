@@ -48,7 +48,7 @@ function DetailsLocations() {
 							<p className={styles.locationsDescr}>
 								{cardDetail.description}
 							</p>
-							<article className={styles.history}> {/* История */}
+							<article className={styles.history}>
 								<h2 className={styles.historyName}>
 									History
 								</h2>
@@ -59,7 +59,7 @@ function DetailsLocations() {
 						</article>
 						<aside className={styles.aside}>
 							<div className={styles.asideImg}>
-								<img src={cardDetail.img} /> {/* Картинка */}
+								<img src={cardDetail.img} />
 							</div>
 						</aside>
 					</section>

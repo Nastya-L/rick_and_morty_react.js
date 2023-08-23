@@ -19,14 +19,12 @@
         font-size: 32px;
         line-height: 48px;
         color: $primary-text-color;
-        align-self: center;
+        margin: auto;
     }
 }
 
-.wrap {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    width: 100%;
+// Theme Dark/Light
+
+.containerCardNot[data-theme='darkDrawItemsPrew'] {
+    color: $sidebar-background-light;
 }

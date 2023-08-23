@@ -136,17 +136,12 @@ textarea::placeholder {
 .comments[data-theme='darkComments'] {
     background: $sidebar-background-dark;
     box-shadow: 0 10px 10px #6E7191;
-    
-    p, h1, h2, h3, li, a {
-        color: $sidebar-background-light;
-    }
 
     textarea {
         background-color: #11b0c84f;
-        color: $sidebar-background-light;
     }
-
-    textarea:focus, textarea::placeholder {
+    
+    p, h1, h2, h3, li, a, textarea, textarea:focus, textarea::placeholder {
         color: $sidebar-background-light;
     }
 }

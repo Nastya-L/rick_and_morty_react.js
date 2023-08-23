@@ -1,8 +1,5 @@
 import React from 'react';
-import '../../styles/App.scss';
-import '../../styles/reset.scss';
 import clas from 'classnames';
-
 import styles from './Sidebar.module.scss';
 import LOGO from '../../images/Logo.png';
 import Langs from '../Langs/Langs';
@@ -14,10 +11,12 @@ function Sidebar() {
 	return (
 		<ThemeContext.Consumer>
 			{({theme}) =>
-				<div className={clas(styles.sidebar)} data-theme={`${theme}Sidebar`}>
+				<div className={styles.sidebar} data-theme={`${theme}Sidebar`}>
 					<nav>
 						<div className={styles.logo}>
-							<img src={LOGO} alt="Logo" />
+							<NavLink to={'/'}>
+								<img src={LOGO} alt="Logo" />
+							</NavLink>
 						</div>
 						<ul className={styles.list}>
 							<li data-theme={`${theme}Sidebar`} className={clas(styles.item, styles.itemHome)}>

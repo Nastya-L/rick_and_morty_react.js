@@ -1,6 +1,4 @@
 import React from 'react';
-import '../../styles/App.scss';
-import '../../styles/reset.scss';
 import style from '../Langs/Langs.module.scss';
 import { ThemeContext } from '../UI/Theme/ThemeContext';
 

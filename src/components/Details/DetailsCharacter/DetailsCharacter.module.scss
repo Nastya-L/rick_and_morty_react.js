@@ -2,6 +2,7 @@
 
 .detailsCharacter {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-around;
     padding: 24px;
     gap: 24px;
@@ -53,7 +54,6 @@
         font-weight: 700;
         font-size: 20px;
         line-height: 28px;
-        text-transform: capitalize;
     }
 
     p {

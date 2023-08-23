@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Comments.module.scss';
-import clas from 'classnames';
 import { ThemeContext } from '../UI/Theme/ThemeContext';
 import CreatStar from '../UI/CreatStar/CreatStar';
 import axios from 'axios';
@@ -64,7 +63,7 @@ function Comments({rating, id, comments, route}) {
 							<form id='newCommentsForm' className={styles.newCommentsForm}>
 								<textarea wrap='hard' cols={200} rows={2}
 									value={formText} onChange={handleChange}
-									className={clas(styles.newCommentsTextarea)} type='text' placeholder='Комментарий' />
+									className={styles.newCommentsTextarea} type='text' placeholder='Комментарий' />
 								<button onClick={addComment}
 									className={styles.newCommentsSumbit}>Отправить</button>
 							</form>
