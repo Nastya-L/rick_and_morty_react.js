@@ -7,15 +7,17 @@ import thunk from 'redux-thunk';
 
 export const rootReducer = combineReducers({
 	displayReducer,
-	favoritesReducer
+	favoritesReducer,
 });
 
 function restoreFromLocalStorage() {
-	const items = JSON.parse(localStorage.getItem('id'));
+	const itemsCharacters = JSON.parse(localStorage.getItem('idsCharacters'));
+	const itemsLocations = JSON.parse(localStorage.getItem('idsLocations'));
 	const state = {
 		favoritesReducer: {
-			ids: items
-		}
+			idsCharacters: itemsCharacters,
+			idsLocations: itemsLocations,
+		},
 	};
 	return state;
 }
@@ -24,8 +26,9 @@ const initialState = restoreFromLocalStorage();
 
 export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
 
-
 store.subscribe(() => {
-	const cardsId = store.getState().favoritesReducer.ids;
-	localStorage.setItem('id', JSON.stringify(cardsId));
+	const cardsIdCharacters = store.getState().favoritesReducer.idsCharacters;
+	const cardsIdLocations = store.getState().favoritesReducer.idsLocations;
+	localStorage.setItem('idsCharacters', JSON.stringify(cardsIdCharacters));
+	localStorage.setItem('idsLocations', JSON.stringify(cardsIdLocations));
 });

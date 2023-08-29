@@ -2,7 +2,7 @@ import React from 'react';
 import style from './CardSquareLocations.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
-import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
+import BtnAddFavoritesLocations from '../BtnAddFavorites/BtnAddFavoritesLocations';
 
 function CardSquareLocations(props) {
 
@@ -26,7 +26,7 @@ function CardSquareLocations(props) {
 							<span>{props.dimension}</span>
 						</div>
 						<p className={style.cardDescr}>{description}...</p>
-						<BtnAddFavorites _id={props._id} />
+						<BtnAddFavoritesLocations _id={props._id} />
 						<BtnDetails _id={props._id} route={'locations/'}/>
 					</div>
 				</div>

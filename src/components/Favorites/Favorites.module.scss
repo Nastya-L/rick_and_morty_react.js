@@ -1,5 +1,48 @@
 @import '../../styles/App';
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: column wrap;
+    gap: 35px;
+    width: 100%;
+    padding: 0 25px;
+
+    &Card {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 25px;
+        width: 100%;
+        
+        &Not {
+            font-family: Inter, sans-serif;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 48px;
+            color: $primary-text-color;
+        }
+    }
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.favoritesTitle {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: $primary-text-color;
+    margin: 20px 0;
+}
+
 .noFavorites {
     font-family: Inter, sans-serif;
     font-style: normal;
@@ -7,10 +50,12 @@
     font-size: 32px;
     line-height: 48px;
     color: $primary-text-color;
+    align-self: center;
+    margin: 20px 0;
 }
 
 // Theme Dark/Light
 
-.noFavorites[data-theme='darkFavorites'] {
+.noFavorites[data-theme='darkFavorites'], .favoritesTitle[data-theme='darkFavorites'] {
     color: $sidebar-background-light;
 }

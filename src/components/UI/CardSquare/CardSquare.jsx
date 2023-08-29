@@ -2,7 +2,7 @@ import React from 'react';
 import style from './CardSquare.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
-import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
+import BtnAddFavoritesCharacters from '../BtnAddFavorites/BtnAddFavoritesCharacters';
 
 function CardSquare(props) {
 	const description = props.description ? props.description.slice(0, 120) : '';
@@ -28,7 +28,7 @@ function CardSquare(props) {
 									className={style.cardPlanet}>{props.planet}</p>
 							</div>
 							<p className={style.cardDescr}>{description}...</p>
-							<BtnAddFavorites _id={props._id} />
+							<BtnAddFavoritesCharacters _id={props._id} />
 							<BtnDetails _id={props._id} route={'character/'}/>
 						</div>
 					</div>

@@ -1,4 +1,4 @@
-import { USER_FAVORITE, VIEW_LIST, VIEW_SQUARE } from './types';
+import { USER_FAVORITE_CHARACTERS, USER_FAVORITE_LOCATIONS, VIEW_LIST, VIEW_SQUARE } from './types';
 
 export function viewList() {
 	return {
@@ -12,9 +12,16 @@ export function viewSquare() {
 	};
 }
 
-export function userFavorite(arrayIds) {
+export function userFavoriteCharacters(arrayIds) {
 	return {
-		type: USER_FAVORITE,
+		type: USER_FAVORITE_CHARACTERS,
 		payload: arrayIds
+	};
+}
+
+export function userFavoriteLocations(arrayIdsLocations) {
+	return {
+		type: USER_FAVORITE_LOCATIONS,
+		payload: arrayIdsLocations
 	};
 }
