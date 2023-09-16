@@ -7,9 +7,9 @@ function CreatStar(rate) {
 	let rating = [];
 	for (let i = 0; i < rateNumber; i += 1) {
 		if ((rateNumber - i) < 1) {
-			rating.push(<img src={starHalf}/>);
+			rating.push(<img src={starHalf} alt='starHalf'/>);
 		} else {
-			rating.push(<img src={star}/>);
+			rating.push(<img src={star} alt='star' />);
 		}
 	}
 	return rating;
