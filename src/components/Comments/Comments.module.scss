@@ -121,7 +121,7 @@ textarea::placeholder {
         position: absolute;
         bottom: 0;
         right: 0;
-        background-image: url('../../images/delete.png');
+        background-image: url('../../images/deleteWhite.png');
         background-repeat: no-repeat;
         background-position: 2px 2px;
         padding: 10px;
@@ -148,5 +148,5 @@ textarea::placeholder {
 
 .commentDelete[data-theme='darkComments'] {
     background-color: $sidebar-background-dark;
-    background-image: url('../../images/Dark/delete.png');
+    background-image: url('../../images/Dark/deleteDark.png');
 }

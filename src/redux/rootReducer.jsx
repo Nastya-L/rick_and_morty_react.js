@@ -5,6 +5,11 @@ import {createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
+const devTools =
+	process.env.NODE_ENV === 'production' // eslint-disable-line
+		? applyMiddleware(thunk)
+		: composeWithDevTools(applyMiddleware(thunk));
+
 export const rootReducer = combineReducers({
 	displayReducer,
 	favoritesReducer,
@@ -24,7 +29,7 @@ function restoreFromLocalStorage() {
 
 const initialState = restoreFromLocalStorage();
 
-export const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
+export const store = createStore(rootReducer, initialState, devTools);
 
 store.subscribe(() => {
 	const cardsIdCharacters = store.getState().favoritesReducer.idsCharacters;

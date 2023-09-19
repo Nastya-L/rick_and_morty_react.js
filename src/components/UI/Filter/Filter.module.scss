@@ -34,7 +34,7 @@
         &Btn {
             width: 100%;
             padding-left: 30px;
-            background-image: url('../../../images/filter.png');
+            background-image: url('../../../images/filterWhite.png');
             background-repeat: no-repeat;
             background-position: 2px 10px;
         }
@@ -82,7 +82,7 @@
 }
 
 .filterTitleBtn[data-theme='darkFilter'] {
-    background-image: url('../../../images/Dark/filter.png');
+    background-image: url('../../../images/Dark/filterDark.png');
 }
 
 button[data-theme='darkFilter'] {

@@ -49,7 +49,7 @@ form {
     top: 0;
     right: 0;
     cursor: pointer;
-    background-image: url('../../images/search.png');
+    background-image: url('../../images/searchWhite.png');
     background-repeat: no-repeat;
     background-position: 6px 6px;
 }
@@ -111,7 +111,7 @@ form {
 
 .inputBtn[data-theme='darkHeader'] {
     background-color: $main-background-dark;
-    background-image: url('../../images/Dark/search.png');
+    background-image: url('../../images/Dark/searchDark.png');
     
     p, h1 {
         color: $sidebar-background-light;

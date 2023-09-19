@@ -42,19 +42,19 @@ nav {
     }
 
     &Home {
-        background-image: url('../../images/home.png');
+        background-image: url('../../images/homeWhite.png');
         background-repeat: no-repeat;
         background-position: 16px 10px;
     }
 
     &Characters {
-        background-image: url('../../images/users.png');
+        background-image: url('../../images/usersWhite.png');
         background-repeat: no-repeat;
         background-position: 16px 10px;
     }
 
     &Locations {
-        background-image: url('../../images/Planet.png');
+        background-image: url('../../images/planetSidebarWhite.png');
         background-repeat: no-repeat;
         background-position: 16px 10px;
     }
@@ -82,15 +82,15 @@ nav {
 }
 
 .itemHome[data-theme='darkSidebar'] {
-    background-image: url('../../images/Dark/home.png');
+    background-image: url('../../images/Dark/homeDark.png');
 }
 
 .itemCharacters[data-theme='darkSidebar'] {
-    background-image: url('../../images/Dark/users.png');
+    background-image: url('../../images/Dark/usersDark.png');
 }
 
 .itemLocations[data-theme='darkSidebar'] {
-    background-image: url('../../images/Dark/world.png');
+    background-image: url('../../images/Dark/worldDark.png');
 }
 
 .itemFavorites[data-theme='darkSidebar'] {

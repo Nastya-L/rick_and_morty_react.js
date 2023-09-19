@@ -62,25 +62,25 @@
 }
 
 .state {
-    background-image: url('../../../images/DetailsCharacter/Pulse.png');
+    background-image: url('../../../images/DetailsCharacter/PulseCharacterWhite.png');
     background-repeat: no-repeat;
     background-position: -1px 19px;
 }
 
 .gender {
-    background-image: url('../../../images/DetailsCharacter/GenderIntersex.svg');
+    background-image: url('../../../images/DetailsCharacter/GenderIntersexWhite.svg');
     background-repeat: no-repeat;
     background-position: 1px 17px;
 }
 
 .species {
-    background-image: url('../../../images/DetailsCharacter/Alien.png');
+    background-image: url('../../../images/DetailsCharacter/аlienCharacterWhite.png');
     background-repeat: no-repeat;
     background-position: 0 19px;
 }
 
 .planet {
-    background-image: url('../../../images/DetailsCharacter/planet.png');
+    background-image: url('../../../images/DetailsCharacter/planetCharacterWhite.png');
     background-repeat: no-repeat;
     background-position: 1px 19px;
 }
@@ -109,13 +109,13 @@
 }
 
 .gender[data-theme='darkDetailsCharacter'] {
-    background-image: url('../../../images/DetailsCharacter/Dark/GenderIntersex.svg');
+    background-image: url('../../../images/DetailsCharacter/Dark/GenderIntersexCharacterDark.svg');
 }
 
 .species[data-theme='darkDetailsCharacter'] {
-    background-image: url('../../../images/DetailsCharacter/Dark/Alien.png');
+    background-image: url('../../../images/DetailsCharacter/Dark/alienCharacterDark.png');
 }
 
 .planet[data-theme='darkDetailsCharacter'] {
-    background-image: url('../../../images/DetailsCharacter/Dark/planet.png');
+    background-image: url('../../../images/DetailsCharacter/Dark/planetCharacterDark.png');
 }

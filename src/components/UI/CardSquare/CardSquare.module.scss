@@ -73,19 +73,19 @@
     }
 
     &Gender {
-        background-image: url('../../../images/gender.png');
+        background-image: url('../../../images/genderWhite.png');
         background-repeat: no-repeat;
         background-position: 0 4px;
     }
 
     &Species {
-        background-image: url('../../../images/Alien.svg');
+        background-image: url('../../../images/аlienWhite.svg');
         background-repeat: no-repeat;
         background-position: -1px 3px;
     }
 
     &Planet {
-        background-image: url('../../../images/Planet.svg');
+        background-image: url('../../../images/planetWhite.svg');
         background-repeat: no-repeat;
         background-position: -1px 5px;
     }
@@ -108,13 +108,13 @@
 }
 
 .cardSpecies[data-theme='darkSquare'] {
-    background-image: url('../../../images/Dark/Alien.png');
+    background-image: url('../../../images/Dark/alienDark.png');
 }
 
 .cardGender[data-theme='darkSquare'] {
-    background-image: url('../../../images/Dark/couple.png');
+    background-image: url('../../../images/Dark/coupleDark.png');
 }
 
 .cardPlanet[data-theme='darkSquare'] {
-    background-image: url('../../../images/Dark/Planet.svg');
+    background-image: url('../../../images/Dark/planetDark.svg');
 }
