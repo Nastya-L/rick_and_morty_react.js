@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Error.module.scss';
-import { ThemeContext } from '../../UI/Theme/ThemeContext';
+import { ThemeContext } from '../UI/Theme/ThemeContext';
 
 function Error() {
 	return (

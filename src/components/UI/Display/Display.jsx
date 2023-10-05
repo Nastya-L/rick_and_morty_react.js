@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Display.module.scss';
 import clas from 'classnames';
 import {useDispatch, useSelector } from 'react-redux';
-import { viewList, viewSquare } from '../../../redux/actions';
+import { viewList, viewSquare } from '../../../redux/actionsDisplay';
 import { VIEW_LIST, VIEW_SQUARE } from '../../../redux/types';
 
 function Display() {

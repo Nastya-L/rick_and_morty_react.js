@@ -1,7 +1,7 @@
 import React from 'react';
 import BtnAddFavorites from './BtnAddFavorites';
 import { useDispatch, useSelector } from 'react-redux';
-import { userFavoriteLocations } from '../../../redux/actions';
+import { userFavoriteLocations } from '../../../redux/actionsFavorite';
 
 function BtnAddFavoritesLocations({_id}) {
 

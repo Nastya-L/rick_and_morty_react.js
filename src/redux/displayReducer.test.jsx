@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { displayReducer } from './displayReducer';
-import { viewList, viewSquare } from './actions';
+import { viewList, viewSquare } from './actionsDisplay';
 import { VIEW_LIST, VIEW_SQUARE } from './types';
 
 describe('displayReducer', ()=> {

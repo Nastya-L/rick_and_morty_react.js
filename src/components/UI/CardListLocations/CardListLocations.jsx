@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import style from './CardListLocations.module.scss';
 import { ThemeContext } from '../Theme/ThemeContext';
 import BtnDetails from '../BtnDetails/BtnDetails';
-import BtnAddFavorites from '../BtnAddFavorites/BtnAddFavorites';
+import BtnAddFavoritesLocations from '../BtnAddFavorites/BtnAddFavoritesLocations';
 
 const CardListLocations = forwardRef(function CardListLocations(props, ref) {
 
@@ -30,7 +30,7 @@ const CardListLocations = forwardRef(function CardListLocations(props, ref) {
 							<span>{props.dimension}</span>
 						</div>
 						<p className={style.cardDescr}>{description}...</p>
-						<BtnAddFavorites _id={props._id} />
+						<BtnAddFavoritesLocations _id={props._id} />
 						<BtnDetails _id={props._id} route={'locations/'} />
 					</div>
 				</div>

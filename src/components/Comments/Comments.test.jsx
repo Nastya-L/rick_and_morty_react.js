@@ -66,7 +66,7 @@ describe('Comments', () => {
 		const noComments = screen.getByText('No comments');
 		expect(noComments).toBeInTheDocument();
 	});
-	//TODO:
+	
 	test('Array comments undefined', () => { 
 		const comments = undefined;
 		render(<Comments rating={rating} id={id} comments={comments} route={route} />);

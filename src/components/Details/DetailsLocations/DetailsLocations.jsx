@@ -36,10 +36,10 @@ function DetailsLocations() {
 									data-theme={`${theme}DetailsLocations`}>
 									<NavLink>{cardDetail.type}</NavLink>
 								</p>
-								<span>dweller:</span>
+								<span>dimension:</span>
 								<p data-theme={`${theme}DetailsLocations`} 
 									className={styles.dweller}>
-									{cardDetail.dweller}
+									{cardDetail.dimension}
 								</p>
 							</div>
 							<h1 className={styles.locationsName}>

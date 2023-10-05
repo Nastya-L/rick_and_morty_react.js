@@ -6,10 +6,7 @@ function BtnAddFavorites({savedIds, changeSavedIds, _id}) {
 	const [active, setActive] = useState();
 
 	const changeFavorit = () => {
-		let itemsId = [];
-		if (savedIds) {
-			itemsId = [...savedIds];
-		}
+		let itemsId = [...savedIds];
 		const index = itemsId.findIndex((e) => {return e == _id;});
 		if (index >= 0) {
 			itemsId.splice(index, 1);
@@ -22,10 +19,8 @@ function BtnAddFavorites({savedIds, changeSavedIds, _id}) {
 	};
 
 	useEffect(() => {
-		if (savedIds) {
-			if (savedIds.includes(_id)) {
-				setActive(true);
-			}
+		if (savedIds.includes(_id)) {
+			setActive(true);
 		}
 	}, []);
 

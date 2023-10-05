@@ -1,16 +1,4 @@
-import { USER_FAVORITE_CHARACTERS, USER_FAVORITE_LOCATIONS, VIEW_LIST, VIEW_SQUARE } from './types';
-
-export function viewList() {
-	return {
-		type: VIEW_LIST
-	};
-}
-
-export function viewSquare() {
-	return {
-		type: VIEW_SQUARE
-	};
-}
+import { USER_FAVORITE_CHARACTERS, USER_FAVORITE_LOCATIONS } from './types';
 
 export function userFavoriteCharacters(arrayIds) {
 	return {

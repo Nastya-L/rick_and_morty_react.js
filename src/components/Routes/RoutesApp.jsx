@@ -6,7 +6,7 @@ import Locations from '../Locations/Locations';
 import DetailsCharacter from '../Details/DetailsCharacter/DetailsCharacter';
 import DetailsLocations from '../Details/DetailsLocations/DetailsLocations';
 import FavoritesPages from '../Favorites/Favorites';
-import Error from '../Details/404/Error';
+import Error from '../404/Error';
 
 function RoutesApp() {
 	return (

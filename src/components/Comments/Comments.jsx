@@ -69,7 +69,7 @@ function Comments({rating, id, comments, route}) {
 							</form>
 						</div>
 						<div className={styles.comment}>
-							{arryaComments
+							{arryaComments && arryaComments.length > 0
 								? arryaComments.map((com) => (
 									<p key={com._id} className={styles.commentText}>{com.message}
 										<span className={styles.commentData}>{com.published}</span>

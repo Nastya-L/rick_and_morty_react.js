@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { favoritesReducer } from './favoritesReducer';
-import { userFavoriteCharacters, userFavoriteLocations } from './actions';
+import { userFavoriteCharacters, userFavoriteLocations } from './actionsFavorite';
 
 describe('favoritesReducer', () => {
 
@@ -14,10 +14,10 @@ describe('favoritesReducer', () => {
 		expect(favoritesReducer({idsLocations: []}, userFavoriteLocations(arrayIds))).toEqual({idsLocations: arrayIds});
 	});
 
-	// test('Not initialized store', () => { 
-	// 	expect(favoritesReducer(undefined, userFavoriteCharacters())).toEqual({idsCharacters: []})
-	// 	expect(favoritesReducer(undefined, userFavoriteLocations())).toEqual({idsLocations: []})
-	// });
+	test('Not initialized store', () => { 
+		expect(favoritesReducer(undefined, userFavoriteCharacters())).toEqual({idsCharacters: undefined, idsLocations: []});
+		expect(favoritesReducer(undefined, userFavoriteLocations())).toEqual({idsCharacters: [], idsLocations: undefined });
+	});
 
 	test('Unknown type', () => { 
 		expect(favoritesReducer({idsCharacters: []}, {type: 'BlaBla'})).toEqual({idsCharacters: []});

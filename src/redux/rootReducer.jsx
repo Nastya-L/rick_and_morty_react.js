@@ -16,8 +16,8 @@ export const rootReducer = combineReducers({
 });
 
 function restoreFromLocalStorage() {
-	const itemsCharacters = JSON.parse(localStorage.getItem('idsCharacters'));
-	const itemsLocations = JSON.parse(localStorage.getItem('idsLocations'));
+	const itemsCharacters = (JSON.parse(localStorage.getItem('idsCharacters')) || []);
+	const itemsLocations = (JSON.parse(localStorage.getItem('idsLocations')) || []);
 	const state = {
 		favoritesReducer: {
 			idsCharacters: itemsCharacters,
