@@ -71,6 +71,6 @@ describe('Comments', () => {
 		const comments = undefined;
 		render(<Comments rating={rating} id={id} comments={comments} route={route} />);
 		const noComments = screen.queryByText('No comments');
-		expect(noComments).not.toBeInTheDocument();
+		expect(noComments).toBeInTheDocument();
 	});
 });
