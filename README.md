@@ -3,13 +3,37 @@ This project is a catalog of articles on the Rick and Morty series. You can view
 
 ### Features:
 * Dark and light theme
+
+<img src='./docs/images/dark_and_light_theme.gif' height='100%' width="100%"/>
+
 * Filter by character and location categories
+
+<img src='./docs/images/filter.gif' height='100%' width="100%"/>
+
 * Switching between card views
+
+<img src='./docs/images/types_of_сards.gif' height='100%' width="100%"/>
+
 * Classic pagination
+
+<img src='./docs/images/pagination.gif' height='100%' width="100%"/>
+
 * Infinite scroll
+
+<img src='./docs/images/Infinite_scroll.gif' height='100%' width="100%"/>
+
 * Add/remove comments
+
+<img src='./docs/images/comments.gif' height='100%' width="100%"/>
+
 * Saving to favorites
+
+<img src='./docs/images/favorites.gif' height='100%' width="100%"/>
+
 * Can view more detailed information about the card
+
+<img src='./docs/images/details.gif' height='100%' width="100%"/>
+
 * Skeleton Loader for cards
 ***
   
