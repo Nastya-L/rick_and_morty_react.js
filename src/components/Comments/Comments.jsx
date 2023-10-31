@@ -52,20 +52,20 @@ function Comments({rating, id, comments, route}) {
 				<section className={styles.comments}
 					data-theme={`${theme}Comments`}>
 					<div className={styles.commentsRating}>
-						<p>Рейтинг: {rating}</p>
+						<p>Rating: {rating}</p>
 						<div className={styles.commentsRatingImg}>
 							{CreatStar(rating)}
 						</div>
 					</div>
 					<div className={styles.newComments}>
 						<div className={styles.newCommentsWrapp}>
-							<h1 className={styles.newCommentsTitle}>Оставить комментарий</h1>
+							<h1 className={styles.newCommentsTitle}>leave a comment</h1>
 							<form id='newCommentsForm' className={styles.newCommentsForm}>
 								<textarea wrap='hard' cols={200} rows={2}
 									value={formText} onChange={handleChange}
-									className={styles.newCommentsTextarea} type='text' placeholder='Комментарий' />
+									className={styles.newCommentsTextarea} type='text' placeholder='Comment' />
 								<button onClick={addComment}
-									className={styles.newCommentsSumbit}>Отправить</button>
+									className={styles.newCommentsSumbit}>Send</button>
 							</form>
 						</div>
 						<div className={styles.comment}>
